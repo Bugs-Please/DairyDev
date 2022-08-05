@@ -1,0 +1,23 @@
+.key-benefits-content
+{
+    color: #fff;
+   
+}
+
+.benefit-section-heading
+{
+    margin-bottom: 30px;
+}
+
+.benefit-cell
+{
+    border: 1px solid black;
+    /* margin:10px; */
+    background-color: #3B5999;
+}
+
+.benefit-cell-heading
+{
+    margin-bottom: 10px;
+}
+
