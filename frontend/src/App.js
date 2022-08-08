@@ -2,7 +2,7 @@ import React from 'react'
 import {
     BrowserRouter as Router,
     Route,
-    Routes,
+    Routes
 } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import LandingPage from './Screens/LandingPage/LandingPage';
@@ -15,12 +15,8 @@ const App = () => {
             <Navbar />
             <Routes>
                 <Route path='/' element={LandingPage} />
-                {/* <Route path="/login">
-                        <Login />
-                    </Route>
-                    <Route path="/signup">
-                        <Signup />
-                    </Route> */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
             </Routes>
         </Router>
     )
