@@ -105,6 +105,7 @@ const KeyBenefit = () => {
               className=" w-50 mx-auto d-block"
               src={lock}
               alt="Lock to represent Immutablility"
+              style={{"objectFit":"contain"}}
             />
           </div>
           <div className="col-md-6">
@@ -125,6 +126,7 @@ const KeyBenefit = () => {
               className="mx-auto d-block w-100"
               src={trace}
               alt="Tocality to represent traceability"
+              style={{"objectFit":"contain"}}
             />
           </div>
           <div className="col-md-6 order-md-1">
@@ -145,6 +147,7 @@ const KeyBenefit = () => {
               className=" w-50 mx-auto d-block"
               src={digi}
               alt="Tab to represent digitize"
+              style={{"objectFit":"contain"}}
             />
           </div>
           <div className="col-md-6">
