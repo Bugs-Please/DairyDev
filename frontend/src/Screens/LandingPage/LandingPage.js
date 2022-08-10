@@ -1,19 +1,26 @@
 import React from "react";
 import "./LandingPage.css";
 import KeyBenefit from "../../Components/KeyBenefit/KeyBenefit";
+import Navbar from "../../Components/Navbar/Navbar"
+import Banner from "../../Components/Banner/Banner";
+
 const LandingPage = () => {
   return (
-    <div>
-      {/* we need a banner component which will be placed just after the navbar */}
+      <div >
+          {/* <div className="landing" /> */}
+          <Navbar className="nav" />
+          <Banner className="banner" />
 
-      {/* A component for process tab */}
+          {/* we need a banner component which will be placed just after the navbar */}
 
-      {/* benefits cards component */}
-      <KeyBenefit />
-      {/* Advantages component */}
+          {/* A component for process tab */}
 
-      {/* footer */}
-    </div>
+          {/* benefits cards component */}
+          <KeyBenefit />
+          {/* Advantages component */}
+
+          {/* footer */}
+      </div>
   );
 };
 
