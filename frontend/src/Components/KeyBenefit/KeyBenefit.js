@@ -116,6 +116,7 @@ const KeyBenefit = () => {
               blanditiis, hic quisquam dicta, animi doloribus. Autem similique
               fuga eveniet dolorum vitae distinctio voluptatem quasi ipsa ipsum!
             </p>
+            <a href="#working-process"><button className="btn btn-outline-primary learn-more">Learn More</button></a>
           </div>
         </div>
 
@@ -137,6 +138,7 @@ const KeyBenefit = () => {
               blanditiis, hic quisquam dicta, animi doloribus. Autem similique
               fuga eveniet dolorum vitae distinctio voluptatem quasi ipsa ipsum!
             </p>
+            <a href="#working-process"><button className="btn btn-primary learn-more">See how it works</button></a>
           </div>
         </div>
 
@@ -158,6 +160,7 @@ const KeyBenefit = () => {
               blanditiis, hic quisquam dicta, animi doloribus. Autem similique
               fuga eveniet dolorum vitae distinctio voluptatem quasi ipsa ipsum!
             </p>
+            <a href="#working-process"><button className="btn btn-outline-primary learn-more">Learn How</button></a>
           </div>
         </div>
 
