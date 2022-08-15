@@ -7,7 +7,7 @@ import digi from "../../Assets/images/Digi.png";
 const KeyBenefit = () => {
   return (
     <section classname="key-benefits">
-      <div className="container benefit-section-heading text-center">
+      <div className="container benefit-section-heading text-center mt-5">
         <h2>Key Benefits</h2>
       </div>
 
