@@ -3,6 +3,7 @@ import "./LandingPage.css";
 import KeyBenefit from "../../Components/KeyBenefit/KeyBenefit";
 import Navbar from "../../Components/Navbar/Navbar"
 import Banner from "../../Components/Banner/Banner";
+import Footer from "../../Components/Footer/Footer"
 
 const LandingPage = () => {
   return (
@@ -20,6 +21,7 @@ const LandingPage = () => {
           {/* Advantages component */}
 
           {/* footer */}
+          <Footer />
       </div>
   );
 };
