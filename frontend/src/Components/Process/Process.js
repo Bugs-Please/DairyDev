@@ -5,6 +5,7 @@ import logo2 from "../../Assets/images/logo2.png"
 import logo3 from "../../Assets/images/logo3.png"
 import process1 from "../../Assets/images/process1.png"
 import process2 from "../../Assets/images/process2.png"
+import process3 from "../../Assets/images/process3.png"
 const Process = () => {
     return (
         <Tabs
@@ -102,10 +103,25 @@ const Process = () => {
             >
                 <Container>
                     <Row>
-                        <p>Temperature recorded at various intervals in transportation process</p>
-                    </Row>
-                    <Row>
-                        <p>Details are updated about the batch</p>
+                        <Col>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <img src={logo1} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
+                                    <p className='my-auto px-3'>Temperature recorded at various intervals in transportation process.</p>
+                                </div>
+                            </Row>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
+                                    <p className='my-auto px-3'>Details are updated about the batch.</p>
+                                </div>
+                            </Row>
+                        </Col>
+                        <Col>
+                            <div className='d-flex justify-content-center'>
+                                <img src={process3} style={{objectFit:'contain'}} alt="milk tetra pack" />  
+                            </div>
+                        </Col>
                     </Row>
                 </Container>
             </Tab>
@@ -120,13 +136,26 @@ const Process = () => {
             >
                 <Container>
                     <Row>
-                        <p>Additional milk tests details such as platform tests are received a day before batch arrives.</p>
-                    </Row>
-                    <Row>
-                        <p>This allowed better decisions to be made while the milk is being processed</p>
-                    </Row>
-                    <Row>
-                        <p>Then Packaging information about the batch of milk and lab test reports are updated.</p>
+                        <Col xs={12} md={12} className='align-content-center justify-content-center'>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <img src={logo1} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
+                                    <p className='my-auto px-3'>Additional milk tests details such as platform tests are received a day before batch arrives.</p>
+                                </div>
+                            </Row>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
+                                    <p className='my-auto px-3'>This allowed better decisions to be made while the milk is being processed.</p>
+                                </div>
+                            </Row>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
+                                    <p className='my-auto px-3'>Then Packaging information about the batch of milk and lab test reports are updated.</p>
+                                </div>
+                            </Row>
+                        </Col>
                     </Row>
                 </Container>
             </Tab>
@@ -141,28 +170,36 @@ const Process = () => {
             >
                 <Container>
                     <Row>
-                        <p>
-                            Data which will be visible to the end consumer are as follows :
-                            <br/>
-                            1. Farm that ships batch of milk
-                            <br/>
-                            2. The temperature at which it was delivered to the chilling and packaging centres.
-                            <br/>
-                            3. More information about detailed lab reports and test results.
-                        </p>
-                    </Row>
-                    <Row>
-                        <p>
-                            As the entire data is stored on an immutable ledger with minimal human intervention the problems like adulteration, low quality, and counterfeiting should be countered.
-                        </p>
-                    </Row>
-                    <Row>
-                        <p>
-                            Farmers will get financial benefits from increased quality and yield of milk and better bargaining power, customers can acquire excellent quality milk while tracking the status of the product.
-                        </p>
-                    </Row>
-                    <Row>
-                        <p>By Achieving end-to-end visibility we can recall a batch of milk at any point of failure in the supply chain thus minimizing losses and enhancing trust.</p>
+                        <Col>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <p className='my-auto px-3'>
+                                        Data which will be visible to the end consumer are as follows :
+                                        <br/>
+                                        1. Farm that ships batch of milk
+                                        <br/>
+                                        2. The temperature at which it was delivered to the chilling and packaging centres.
+                                        <br/>
+                                        3. More information about detailed lab reports and test results.
+                                    </p>
+                                </div>
+                            </Row>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <p className='my-auto px-3'>As the entire data is stored on an immutable ledger with minimal human intervention the problems like adulteration, low quality, and counterfeiting should be countered.</p>
+                                </div>
+                            </Row>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <p className='my-auto px-3'>Farmers will get financial benefits from increased quality and yield of milk and better bargaining power, customers can acquire excellent quality milk while tracking the status of the product.</p>
+                                </div>
+                            </Row>
+                            <Row className='m-5'>
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <p className='my-auto px-3'>By Achieving end-to-end visibility we can recall a batch of milk at any point of failure in the supply chain thus minimizing losses and enhancing trust.</p>
+                                </div>
+                            </Row>
+                        </Col>
                     </Row>
                 </Container>
             </Tab>

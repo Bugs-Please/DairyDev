@@ -16,6 +16,7 @@ const LandingPage = () => {
           {/* we need a banner component which will be placed just after the navbar */}
           <Banner className="banner" />
           {/* A component for process tab */}
+          <h2 className="text-center">Our Process</h2>
           <Process className="process"/>
           {/* benefits cards component */}
           <KeyBenefit />
