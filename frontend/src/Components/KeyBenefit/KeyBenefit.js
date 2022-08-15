@@ -105,6 +105,7 @@ const KeyBenefit = () => {
               className=" w-50 mx-auto d-block"
               src={lock}
               alt="Lock to represent Immutablility"
+              style={{"objectFit":"contain"}}
             />
           </div>
           <div className="col-md-6">
@@ -115,6 +116,7 @@ const KeyBenefit = () => {
               blanditiis, hic quisquam dicta, animi doloribus. Autem similique
               fuga eveniet dolorum vitae distinctio voluptatem quasi ipsa ipsum!
             </p>
+            <a href="#working-process"><button className="btn btn-outline-primary learn-more">Learn More</button></a>
           </div>
         </div>
 
@@ -125,6 +127,7 @@ const KeyBenefit = () => {
               className="mx-auto d-block w-100"
               src={trace}
               alt="Tocality to represent traceability"
+              style={{"objectFit":"contain"}}
             />
           </div>
           <div className="col-md-6 order-md-1">
@@ -135,6 +138,7 @@ const KeyBenefit = () => {
               blanditiis, hic quisquam dicta, animi doloribus. Autem similique
               fuga eveniet dolorum vitae distinctio voluptatem quasi ipsa ipsum!
             </p>
+            <a href="#working-process"><button className="btn btn-primary learn-more">See how it works</button></a>
           </div>
         </div>
 
@@ -145,6 +149,7 @@ const KeyBenefit = () => {
               className=" w-50 mx-auto d-block"
               src={digi}
               alt="Tab to represent digitize"
+              style={{"objectFit":"contain"}}
             />
           </div>
           <div className="col-md-6">
@@ -155,6 +160,7 @@ const KeyBenefit = () => {
               blanditiis, hic quisquam dicta, animi doloribus. Autem similique
               fuga eveniet dolorum vitae distinctio voluptatem quasi ipsa ipsum!
             </p>
+            <a href="#working-process"><button className="btn btn-outline-primary learn-more">Learn How</button></a>
           </div>
         </div>
 

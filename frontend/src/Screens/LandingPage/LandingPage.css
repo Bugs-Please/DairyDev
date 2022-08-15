@@ -1,0 +1,10 @@
+.nav {
+    z-index: 10;
+}
+
+.banner {
+    /* height: 50vh; */
+    /* width: 100%; */
+    background-image: url("../../Assets/images/NavBgnd.png");
+    z-index: 10;
+}
