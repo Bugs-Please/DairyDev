@@ -9,6 +9,7 @@ import Dashboard from './Screens/Dashboard/Dashboard';
 import LandingPage from './Screens/LandingPage/LandingPage';
 import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
+import Tracking from './Components/Tracking/Tracking'
 
 const App = () => {
     return (
@@ -18,6 +19,8 @@ const App = () => {
                 <Route path = "/login" element={<Login />} />
                 <Route path = "/signup" element={<Signup />} />
                 <Route path = "/dashboard" element={<Dashboard/>} />
+                <Route path = "/tracking" element={<Tracking/>} />
+                
             </Routes>
         </Router>
     )
