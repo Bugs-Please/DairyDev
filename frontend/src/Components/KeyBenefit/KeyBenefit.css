@@ -21,3 +21,30 @@
     margin-bottom: 10px;
 }
 
+.doing-what
+{
+    position:relative;
+    margin-bottom: 3%;
+}
+
+.doing-what-details
+{
+    position:absolute;
+    top: 35%;
+    color: #fff;
+    left: 20%;
+
+}
+
+.para-details
+{
+    padding-right: 50%;
+    justify-content: baseline;
+    margin-top: 2%;
+}
+
+.cow-img
+{
+    padding: 0% 10%;
+}
+
