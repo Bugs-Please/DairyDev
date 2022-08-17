@@ -1,5 +1,6 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
 .signup .container {
     display: flex;
@@ -72,9 +73,9 @@
     font-weight: bold;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus,
-select:focus{
+.signup input[type="email"]:focus,
+.signup input[type="password"]:focus,
+#select:focus{
     border: 3px #3B5999 solid;
     box-shadow: none;
 }

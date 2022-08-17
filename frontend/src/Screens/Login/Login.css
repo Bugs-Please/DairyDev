@@ -38,8 +38,8 @@
     height: 100%;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus,
+.login input[type="email"]:focus,
+.login input[type="password"]:focus,
 select:focus{
     border: 3px #3B5999 solid;
     box-shadow: none;
