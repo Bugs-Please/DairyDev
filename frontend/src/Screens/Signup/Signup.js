@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../Components/Navbar/Navbar";
 import group from "./group.svg";
 import './Signup.css';
 const Signup = () => {
@@ -11,7 +10,11 @@ const Signup = () => {
                     <br />
                     <form>
                         <div className="form-row">
+
                             <div className="form-group col-md-12">
+                                <label>
+                                    <i className="zmdi zmdi-email material-icons-name"></i>
+                                </label>
                                 <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
                             </div>
                             <br />
@@ -28,7 +31,7 @@ const Signup = () => {
                             <br />
 
                             <div className="form-group col-md-12">
-                                <select className="form-control custom-select custom-select-sm col-md-12 shadow-none">
+                                <select id="select" className="form-control custom-select custom-select-sm col-md-12 shadow-none">
                                     <option selected>Select your user role</option>
                                     <option value="1">Dairy Farmer</option>
                                     <option value="2">Cooperative</option>
