@@ -7,9 +7,7 @@ const Dashboard = () => {
   return (
     <div>
         <Row>
-            <Col xs = {2}>
-                <Sidebar />
-            </Col>
+            <Sidebar />
             <Col xs = {10}>
                 <h1>dashboard for all profiles</h1>
                 <Profile/>
