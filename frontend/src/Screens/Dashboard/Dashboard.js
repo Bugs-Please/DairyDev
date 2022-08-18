@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Sidebar from '../../Components/Sidebar/Sidebar'
-import Profile from './Profile'
+import Profile from './FarmerProfile'
 
 const Dashboard = () => {
   return (
