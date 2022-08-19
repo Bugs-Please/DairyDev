@@ -11,13 +11,13 @@ const LandingPage = () => {
       <div >
           {/* <div className="landing" /> */}
           <Navbar className="nav" />
-          
-
           {/* we need a banner component which will be placed just after the navbar */}
           <Banner className="banner" />
           {/* A component for process tab */}
-          <h2 className="text-center">Our Process</h2>
-          <Process className="process"/>
+          <section id='working-process'>
+          <h2 className="text-center ">Our Process</h2>
+          <Process className="process" />
+          </section>
           {/* benefits cards component */}
           <KeyBenefit />
           {/* Advantages component */}
