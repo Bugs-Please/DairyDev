@@ -20,7 +20,7 @@ const Navbar = () => {
                         <Nav className="ml-auto">
                         
                             <Nav.Link className="mr-auto" href="#home">Home</Nav.Link>
-                            <Nav.Link className="mr-auto" href="#Dashboard">Dashboard</Nav.Link>
+                            <Nav.Link className="mr-auto" href="/dashboard">Dashboard</Nav.Link>
                             <Nav.Link className="mr-auto" href="#AboutUs">About Us</Nav.Link>
                             <NavDropdown className="mr-auto" title="Login | Register" >
                                 

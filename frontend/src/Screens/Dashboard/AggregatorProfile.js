@@ -1,20 +1,24 @@
+import './Profile.css'
 const Profile = () => {
     return (
         <div className="profile">
             <div className="row">
-                <div className="col-12 bg-primary text-center">
+                <div className="col-3">
+                    <h1>image here</h1>
+                </div>
+                <div className="details-top col-8 bg-light text-center">
                     <h1>Name: John Doe</h1>
                     <h2>Id: 648453</h2>
                     <h2>Gender: Male</h2>
                 </div>
             </div>
             <br></br>
-
+            
             <div className="accordion" id="accordionPanelsStayOpenExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="panelsStayOpen-headingOne">
                         <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                            Basic Details
+                            <h4>Basic Details</h4>
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseOne" className="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
@@ -29,12 +33,12 @@ const Profile = () => {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                            Cattle details
+                            <h4>Cattle details</h4>
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseTwo" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                         <div className="accordion-body">
-                            <table class="table table-striped text-center">
+                            <table class="table text-center">
                                 <thead>
                                     <tr>
                                         <th scope="col">Cow RFID</th>
@@ -82,7 +86,7 @@ const Profile = () => {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="panelsStayOpen-headingThree">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                            Scheme details
+                            <h4>Scheme details</h4>
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseThree" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
@@ -96,12 +100,12 @@ const Profile = () => {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="panelsStayOpen-headingFour">
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-                            Payment details
+                            <h4>Payment details</h4>
                         </button>
                     </h2>
                     <div id="panelsStayOpen-collapseFour" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
                         <div className="accordion-body">
-                            <table class="table table-striped text-center">
+                            <table class="table text-center">
                                 <thead>
                                     <tr>
                                         <th scope="col">Date</th>
