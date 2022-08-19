@@ -8,7 +8,7 @@ const Form = () => {
     username: "",
     batch_number: "",
     report_number: "",
-    milk_type: "",
+    milk_type: "cow",
     water_content: "",
     fat_content: "",
     volume: "",
@@ -100,7 +100,7 @@ const Form = () => {
                   <label for="milk_type" className="form-label">
                     Milk Type
                   </label>
-                  <input
+                  {/* <input
                     className="form-control p-2"
                     type="text"
                     placeholder="Milk Type"
@@ -108,7 +108,20 @@ const Form = () => {
                     value={milk_type}
                     onChange={(e) => onChange(e)}
                     required
-                  />
+                  /> */}
+                  <select
+                    className="form-select"
+                    onChange={(e) => onChange(e)}
+                    value={milk_type}
+                    name="milk_type"
+                    required
+                  >
+                    {/* <option selected>Select milk type form menu</option> */}
+                    <option value="cow">Cow</option>
+                    <option value="bufflo">Buffalo</option>
+                    <option value="sheep">Sheep</option>
+                    <option value="goat">Goat</option>
+                  </select>
                 </div>
                 <div className="col-md-6 col-lg-3">
                   <label for="water_content" className="form-label">
