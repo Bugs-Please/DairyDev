@@ -1,58 +1,57 @@
-.key-benefits-content
-{
+.key-benefits-content {
     color: #fff;
-   
+
 }
 
-.benefit-section-heading
-{
+.benefit-section-heading {
     margin-bottom: 30px;
 }
 
-.benefit-cell
-{
+.benefit-cell {
     border: 1px solid black;
     /* margin:10px; */
     background-color: #3B5999;
 }
 
-.benefit-cell-heading
-{
+.benefit-cell-heading {
     margin-bottom: 10px;
 }
 
-.doing-what
-{
-    position:relative;
+.doing-what {
+    position: relative;
     margin-bottom: 3%;
 }
 
-.doing-what-details
-{
-    position:absolute;
+.doing-what-details {
+    position: absolute;
     top: 35%;
     color: #fff;
     left: 20%;
 
 }
 
-.para-details
-{
+.para-details {
     padding-right: 50%;
-    justify-content: baseline;
+    /* justify-content: baseline; */
     margin-top: 2%;
 }
 
-.cow-img
-{
+.cow-img {
     padding: 0% 0%;
 }
 
 
-@media only screen and (min-width: 992px) 
-{
-    .cow-img
-    {
+@media only screen and (min-width: 992px) {
+    .cow-img {
         padding: 0% 10%;
     }
+}
+
+.what_we_do {
+    background-image: url('../../Assets/images/BackgroundCow.png');
+    background-position: center;
+    background-size: cover;
+    /* padding: 12.5rem;
+    margin-bottom: 3rem;
+    width: 100vw; */
 }

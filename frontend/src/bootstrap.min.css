@@ -28,7 +28,7 @@
     --white: #fff;
     --gray: #919aa1;
     --gray-dark: #343a40;
-    --primary: #1a1a1a;
+    --primary: #3B5999;
     --secondary: #fff;
     --success: #4bbf73;
     --info: #1f9bcf;
@@ -76,11 +76,15 @@ body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 800;
     line-height: 1.5;
-    color: #55595c;
+    color: black;
     text-align: left;
     background-color: #fff
+}
+
+p {
+    font-weight: 500;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -102,6 +106,10 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: 0.5rem
+}
+
+span {
+    font-weight: 800;
 }
 
 p {
@@ -234,7 +242,7 @@ table {
 caption {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    color: #919aa1;
+    color: black;
     text-align: left;
     caption-side: bottom
 }
@@ -335,7 +343,7 @@ legend {
     margin-bottom: .5rem;
     font-size: 1.5rem;
     line-height: inherit;
-    color: inherit;
+    color: black;
     white-space: normal
 }
 
@@ -392,9 +400,8 @@ h6,
 .h5,
 .h6 {
     margin-bottom: 0.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: #1a1a1a
+    font-weight: 800;
+    color: black;
 }
 
 
@@ -3061,8 +3068,9 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #1a1a1a;
-    border-color: #1a1a1a
+    background-color: #3B5999;
+    border-color: #3B5999;
+    border-radius: 10px;
 }
 
 .btn-primary:hover {

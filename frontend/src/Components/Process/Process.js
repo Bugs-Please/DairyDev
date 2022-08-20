@@ -19,7 +19,7 @@ const Process = () => {
                 title = {
                     <span className='d-flex justify-content-center'>
                         <h3 style={{color:"#3B5999"}}>01</h3>
-                        <span style={{color:"#3B5999", margin:'auto 0', padding:'0 0.5rem'}}>Dairy Farmer</span>
+                        <span style={{color:"#3B5999", margin:'auto 0', padding:'0 0.5rem', fontWeight:"800"}}>Dairy Farmer</span>
                     </span>
                 }
             >
@@ -58,7 +58,7 @@ const Process = () => {
                 title = {
                     <div className='d-flex justify-content-center'>
                         <h3 style={{color:"#3B5999"}}>02</h3>
-                        <span style={{color:"#3B5999", margin:'auto 0', padding:'0 0.5rem'}}>Small Co-operative Collection</span>
+                        <span style={{color:"#3B5999", margin:'auto 0', padding:'0 0.5rem', fontWeight:"800"}}>Small Co-operative Collection</span>
                     </div>
                 }
             >
