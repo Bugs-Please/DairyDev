@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Steps } from "rsuite";
 import "rsuite/styles/index.less";
 import "rsuite/dist/rsuite.min.css";
 import { Col, Row } from "react-bootstrap";
 import Sidebar from "../Sidebar/Sidebar";
+import axios from 'axios'
+import LocationMap from '../../Components/Map/Map'
+import Loader from '../../Components/Loader/Loader'
+
+
 
 const styles = {
   width: "200px",
@@ -13,11 +18,36 @@ const styles = {
 };
 const Tracking = () => {
     const [step, setStep] = useState(0);
+    const [eventData, setEventData] = useState([])
+    const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      setLoading(true)
+
+      const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        params: {
+          "username": "adwait",
+          "sensorId": "sensor1"
+        }
+    }
+    // const res = await axios.get("http://localhost:8081/api/getHistory", config)
+    //   setEventData(res.data)
+    //   setLoading(false)
+    }
+
+    fetchEvents()
+  }, [])
+
     return (
       <div style={{ "overflow-x": "hidden" }}>
       <Row>
         <Sidebar />
-        <Col xs={10} >
+        <Col xs={5} md={5}>
         <div className="main_container mt-3">
             <div class="container padding-bottom-3x mb-1">
         <div class="card mb-3">
@@ -72,7 +102,12 @@ const Tracking = () => {
           </div>
           </div>
           </div>
+       
           </div>
+          </Col>
+          <Col xs={4} md={4}>
+          {/* { !loading ? <LocationMap eventData={eventData} /> : <Loader /> } */}
+          <LocationMap eventData={eventData} /> 
           </Col>
     </Row>
     </div>
