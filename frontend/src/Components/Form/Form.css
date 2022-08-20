@@ -1,0 +1,21 @@
+.outer-container
+{
+    overflow-x: hidden;
+}
+
+.form-label
+{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.form-section
+{
+    background-color: #E9EFF4;
+}
+
+.user-heading, .form-block
+{
+    background-color: #fff;
+    border-radius: 10px;
+}
