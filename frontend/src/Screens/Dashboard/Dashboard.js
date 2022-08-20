@@ -9,7 +9,6 @@ const Dashboard = () => {
         <Row>
             <Sidebar />
             <Col xs = {10}>
-                <h1>dashboard for all profiles</h1>
                 <Profile/>
             </Col>
         </Row>
