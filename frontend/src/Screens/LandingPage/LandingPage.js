@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./LandingPage.css";
 import KeyBenefit from "../../Components/KeyBenefit/KeyBenefit";
 import Navbar from "../../Components/Navbar/Navbar"
 import Banner from "../../Components/Banner/Banner";
 import Footer from "../../Components/Footer/Footer"
 import Process from "../../Components/Process/Process";
+import { AuthContext } from "../../AuthProvider";
 
 const LandingPage = () => {
   return (
