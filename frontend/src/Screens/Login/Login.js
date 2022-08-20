@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import group from "./group.svg";
 import './Login.css';
 import {
     FacebookLoginButton,
     GoogleLoginButton
 } from "react-social-login-buttons";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const login = async(e) =>{
+        e.preventDefault()
+        const res = await signInWithEmailAndPassword(auth,email,password);
+        console.log(res)
+        
+    }
     return (
         <div className="login">
             <div className="container d-flex">
@@ -22,17 +33,19 @@ const Login = () => {
                     <hr />
                     <br />
 
-                    <form>
+                    <form onSubmit={login}>
                         <div className="form-row">
                             <div className="form-group col-md-12">
                                 {/* <label for="inputEmail4">Email</label> */}
-                                <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
+                                <input type="email" className="form-control" id="inputEmail4" placeholder="Email" value={email} 
+                                onChange={e => setEmail(e.target.value)}/>
                             </div>
                             <br />
 
                             <div className="form-group col-md-12">
                                 {/* <label for="inputPassword4">Password</label> */}
-                                <input type="password" className="form-control" id="password1" placeholder="Password" />
+                                <input type="password" className="form-control" id="password1" placeholder="Password" value={password}
+                                onChange={e => setPassword(e.target.value)}/>                                              
                             </div>
                             <br />
 

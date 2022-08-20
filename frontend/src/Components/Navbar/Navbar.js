@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Header from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from "../../Assets/images/Logo.png";
+import { AuthContext } from '../../AuthProvider';
+import { auth } from '../../firebase';
+
 const Navbar = () => {
+    const { user } = useContext(AuthContext); 
+    console.log(user)
     return (
         <header>
             <Header expand='lg' collapseOnSelect className="d-flex">
@@ -22,17 +27,23 @@ const Navbar = () => {
                             <Nav.Link className="mr-auto" href="#home">Home</Nav.Link>
                             <Nav.Link className="mr-auto" href="/dashboard">Dashboard</Nav.Link>
                             <Nav.Link className="mr-auto" href="#AboutUs">About Us</Nav.Link>
-                            <NavDropdown className="mr-auto" title="Login | Register" >
+                            {
+                                !user ? (
+                                    <NavDropdown className="mr-auto" title="Login | Register" >
                                 
-                                <NavDropdown.Item href="#action/3.1">
-                                    Farmer
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Co-Operative</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.3">
-                                    Processing Unit
-                                </NavDropdown.Item>
-                            </NavDropdown>
+                                    <NavDropdown.Item href="#action/3.1">
+                                        Farmer
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.2">Co-Operative</NavDropdown.Item>
+                                    <NavDropdown.Divider />
+                                    <NavDropdown.Item href="#action/3.3">
+                                        Processing Unit
+                                    </NavDropdown.Item>
+                                </NavDropdown>
+                                ) : 
+                                <Nav.Link onClick={()=>auth.signOut()}>Logout</Nav.Link>
+                            }
+                           
 
                         </Nav>
                     </Header.Collapse>
