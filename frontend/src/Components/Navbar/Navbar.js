@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import NavLogo from "../../Assets/images/NavLogo.png";
 import { AuthContext } from '../../AuthProvider';
 import { auth } from '../../firebase';
-import './Navbar.css';
+
 
 const Navbar = () => {
     const { user } = useContext(AuthContext); 
@@ -25,7 +25,7 @@ const Navbar = () => {
                         
                         <Nav className="ml-auto">
                         
-                            <Nav.Link className="nav-link-text mr-auto" href="#home">Home</Nav.Link>
+                            <Nav.Link className="mr-auto" href="#home">Home</Nav.Link>
                             <Nav.Link className="mr-auto" href="/dashboard">Dashboard</Nav.Link>
                             <Nav.Link className="mr-auto" href="#AboutUs">About Us</Nav.Link>
                             {
