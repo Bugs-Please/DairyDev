@@ -3,7 +3,7 @@ import { Col, Container, Row, Button } from "react-bootstrap"
 import MilkPack from "../../Assets/images/MilkPack.png"
 const Banner = () => {
     return (
-        <Container className>
+        <Container >
             <Row className="align-items-center">
                 <Col>
                     <h1>
