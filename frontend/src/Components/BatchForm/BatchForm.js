@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import "./Form.css";
+import "./BatchForm.css";
 
 const Form = () => {
   const [formData, setFormData] = useState({

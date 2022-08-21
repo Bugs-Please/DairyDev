@@ -10,7 +10,7 @@ import LandingPage from './Screens/LandingPage/LandingPage';
 import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
 import Tracking from './Components/Tracking/Tracking';
-import Form from './Components/Form/Form';
+import BatchForm from './Components/BatchForm/BatchForm';
 
 const App = () => {
     return (
@@ -21,7 +21,7 @@ const App = () => {
                 <Route path = "/signup" element={<Signup />} />
                 <Route path = "/dashboard" element={<Dashboard/>} />
                 <Route path = "/tracking" element={<Tracking/>} />
-                <Route path = "/new-batch" element={<Form/>} />
+                <Route path = "/new-batch" element={<BatchForm/>} />
             </Routes>
         </Router>
     )
