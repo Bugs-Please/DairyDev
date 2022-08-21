@@ -11824,3 +11824,8 @@ h6 {
 .card-header {
     color: inherit
 }
+
+h1{
+    color: #3B5999;
+    font-weight: bold;
+}

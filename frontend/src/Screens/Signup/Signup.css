@@ -15,20 +15,23 @@
 }
 .signup .container1 {
     /* border: 2px red solid; */
-    width: 60%;
+    /* width: 60%;
     padding: 2%;
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
     display: inline-block;
-    text-align: center;
+    text-align: center; */
+    width: 60vw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .signup .container2 {
     width: 40%;
     display: inline-block;
     text-align: center;
-   /*  border: 2px red solid; */
 }
 
 .signup .container2 img {

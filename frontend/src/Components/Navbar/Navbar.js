@@ -31,12 +31,12 @@ const Navbar = () => {
                                 !user ? (
                                     <NavDropdown className="mr-auto" title="Login | Register" >
                                 
-                                    <NavDropdown.Item href="#action/3.1">
+                                    <NavDropdown.Item href="/login">
                                         Farmer
                                     </NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Co-Operative</NavDropdown.Item>
+                                    <NavDropdown.Item href="/signup">Co-Operative</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="#action/3.3">
+                                    <NavDropdown.Item href="/signup">
                                         Processing Unit
                                     </NavDropdown.Item>
                                 </NavDropdown>
