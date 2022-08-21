@@ -13,6 +13,7 @@ import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
 import Tracking from './Components/Tracking/Tracking';
 import Form from './Components/Form/Form';
+import FarmerList from './Screens/Dashboard/FarmerList';
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path = "/dashboard" element={<Dashboard/>} />
                 <Route path = "/tracking" element={<Tracking/>} />
                 <Route path = "/new-batch" element={<Form/>} />
+                <Route path = "/farmers" element={<FarmerList/>} />
             </Routes>
         </Router>
         </AuthProvider>
