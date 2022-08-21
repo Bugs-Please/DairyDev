@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import "./Form.css";
+import "./BatchForm.css";
 
 const Form = () => {
   const { user } = useContext(AuthContext);
