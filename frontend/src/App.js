@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
     BrowserRouter as Router,
     Route,
@@ -12,8 +12,9 @@ import LandingPage from './Screens/LandingPage/LandingPage';
 import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
 import Tracking from './Components/Tracking/Tracking';
-import Form from './Components/Form/Form';
+import Form from './Components/BatchForm/BatchForm';
 import FarmerList from './Screens/Dashboard/FarmerList';
+import TransferBaForm from './Components/TransferForm/TransferBatchForm';
 
 const App = () => {
     return (
@@ -27,6 +28,8 @@ const App = () => {
                 <Route path = "/tracking" element={<Tracking/>} />
                 <Route path = "/new-batch" element={<Form/>} />
                 <Route path = "/farmers" element={<FarmerList/>} />
+                <Route path = "/transferbatch" element={<TransferBaForm/>} />
+                
             </Routes>
         </Router>
         </AuthProvider>
