@@ -3,9 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Header from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Logo from "../../Assets/images/Logo.png";
+import NavLogo from "../../Assets/images/NavLogo.png";
 import { AuthContext } from '../../AuthProvider';
 import { auth } from '../../firebase';
+import './Navbar.css';
 
 const Navbar = () => {
     const { user } = useContext(AuthContext); 
@@ -15,16 +16,16 @@ const Navbar = () => {
             <Header expand='lg' collapseOnSelect className="d-flex">
                 <div className='d-flex'>
                     <Header.Brand href="#home">
-                        <img style={{"objectFit":"contain"}} src={Logo} alt="this is our logo" /> <span className="align-content-center mt-5"> DairyDev</span>
+                        <img className="w-25" style={{"objectFit":"contain"}} src={NavLogo} alt="this is our logo" /> <span className="align-content-center mt-5"> DairyDev</span>
                     </Header.Brand>
                 </div>
-                    <Header.Toggle aria-controls="basic-navbar-nav" />
+                    <Header.Toggle aria-controls="basic-navbar-nav"  />
                     <Container>
                     <Header.Collapse className="justify-content-end" id="basic-navbar-nav">
                         
                         <Nav className="ml-auto">
                         
-                            <Nav.Link className="mr-auto" href="#home">Home</Nav.Link>
+                            <Nav.Link className="nav-link-text mr-auto" href="#home">Home</Nav.Link>
                             <Nav.Link className="mr-auto" href="/dashboard">Dashboard</Nav.Link>
                             <Nav.Link className="mr-auto" href="#AboutUs">About Us</Nav.Link>
                             {
