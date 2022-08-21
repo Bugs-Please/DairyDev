@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../../Components/Sidebar/Sidebar";
@@ -22,7 +22,6 @@ const Form = () => {
   });
 
   const {
-    username,
     milkBatchNumber,
     milkBatchHolder,
     milkType,
@@ -56,7 +55,7 @@ const Form = () => {
     const data = {
       "username" : user.auth.currentUser.email , 
       "milkBatchNumber" : formData.milkBatchNumber ,
-      "milkBatchHolder" : formData.milkBatchHolder,
+      "milkBatchHolder" : "Gujrat Farms",
       "milkType" : formData.milkType ,
       "waterContent" : formData.waterContent,
       "fatContent" : formData.fatContent,
