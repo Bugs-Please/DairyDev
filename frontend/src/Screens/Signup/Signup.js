@@ -1,3 +1,4 @@
+import axios from "axios";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
@@ -17,14 +18,40 @@ const Signup = () => {
 
     const register = async (e) => {
         e.preventDefault()
-        console.log(email)
         const userCreds = await createUserWithEmailAndPassword(auth, email, password)
         const user = userCreds.user;
         await addDoc(collection(db, "users"), {
             uid: user.uid,
             role: role,
-            email: user.email,
-        });
+            email : user.email,
+          });
+
+          const data = {
+            "username" : email
+          };
+
+      
+    // console.log(role);
+    if(role==="1")
+    {
+        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
+        console.log(res)
+    }
+    if(role==="2")
+    {
+        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
+        console.log(res)
+    }
+    if(role==="3")
+    {
+        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
+        console.log(res)
+    }
+    if(role==="4")
+    {
+        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
+        console.log(res)
+    }
 
     }
 

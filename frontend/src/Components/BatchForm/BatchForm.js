@@ -1,39 +1,77 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import "./Form.css";
+import "./BatchForm.css";
 
 const Form = () => {
+  const { user } = useContext(AuthContext);
+   
+
   const [formData, setFormData] = useState({
     username: "",
-    batch_number: "",
-    report_number: "",
-    milk_type: "cow",
-    water_content: "",
-    fat_content: "",
+    milkBatchNumber: "",
+    milkBatchHolder: "",
+    milkType: "cow",
+    waterContent: "",
+    fatContent: "",
     volume: "",
-    retailer_name: "",
-    sensor_id: "",
+    retailer: "",
+    sensorId: "",
   });
 
   const {
-    username,
-    batch_number,
-    report_number,
-    milk_type,
-    water_content,
-    fat_content,
+    milkBatchNumber,
+    milkBatchHolder,
+    milkType,
+    waterContent,
+    fatContent,
     volume,
-    retailer_name,
-    sensor_id,
+    retailer,
+    sensorId,
   } = formData;
 
   const onChange = (e) => {
     console.log(e.target.name, e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const onSubmit = (e) => {
+  const FormSubmit = async (e) => {
     e.preventDefault();
+    // const batchForm = new FormData();
+    // batchForm.append("username",user.auth.currentUser.email)    
+    // batchForm.append("milkBatchNumber",formData.milkBatchNumber)
+    // batchForm.append("milkBatchHolder",formData.milkBatchHolder)
+    // batchForm.append("milkType",formData.milkType)
+    // batchForm.append("waterContent",formData.waterContent)
+    // batchForm.append("fatContent",formData.fatContent)
+    // batchForm.append("volume",formData.volume)
+    // batchForm.append("retailer",formData.retailer)
+    // batchForm.append("sensorId",formData.sensorId)
+    // // batchForm.append("milkBatchHolder","Farmer2")
+    // batchForm.append("date","22/02/2022")
+    // console.log(...batchForm)
+
+    const data = {
+      "username" : user.auth.currentUser.email , 
+      "milkBatchNumber" : formData.milkBatchNumber ,
+      "milkBatchHolder" : "Gujrat Farms",
+      "milkType" : formData.milkType ,
+      "waterContent" : formData.waterContent,
+      "fatContent" : formData.fatContent,
+      "volume" : formData.volume,
+      "retailer" : formData.retailer,
+      "sensorId" : formData.sensorId ,
+      "date" : "21/02/2022"
+
+    }
+
+    const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/generatemilkcertificate", data)
+    console.log(res)
+
+
+
+
   };
 
   return (
@@ -41,53 +79,39 @@ const Form = () => {
       <Row className="outer-container">
         <Sidebar />
 
-        <Col xs={10} className="form-section">
+        <Col xs={10} className="form-section batch-form-section">
           <div className="user-heading border p-2 px-3 mt-4 m-4">
             <h3> Hello Cooperative!</h3>
           </div>
           <h5 className="m-4 p-2">Create New Batch</h5>
           <div className="form-block border p-4 px-5 mt-3 m-4">
-            <form onSubmit={(e) => onSubmit(e)}>
-              <label for="username" className="form-label">
-                Username
-              </label>
-              <br />
-              <input
-                className="form-control p-2"
-                type="text"
-                placeholder="Username"
-                name="username"
-                value={username}
-                onChange={(e) => onChange(e)}
-                required
-              />
-
-              <br />
+            <form onSubmit={FormSubmit}>
+              
               <div className="row">
                 <div className="col-md-6">
-                  <label for="batch_number" className="form-label">
+                  <label for="milkBatchNumber" className="form-label label-batch">
                     Milk Batch Number
                   </label>
                   <input
                     className="form-control p-2"
                     type="text"
                     placeholder="Milk Batch Number"
-                    name="batch_number"
-                    value={batch_number}
+                    name="milkBatchNumber"
+                    value={milkBatchNumber}
                     onChange={(e) => onChange(e)}
                     required
                   />
                 </div>
                 <div className="col-md-6">
-                  <label for="report_number" className="form-label">
+                  <label for="milkBatchHolder" className="form-label label-batch">
                     Lab Report Number
                   </label>
                   <input
                     className="form-control p-2"
                     type="text"
                     placeholder="Lab Report Number"
-                    name="report_number"
-                    value={report_number}
+                    name="milkBatchHolder"
+                    value={milkBatchHolder}
                     onChange={(e) => onChange(e)}
                     required
                   />
@@ -97,23 +121,23 @@ const Form = () => {
               <br />
               <div className="row">
                 <div className="col-md-6 col-lg-3">
-                  <label for="milk_type" className="form-label">
+                  <label for="milkType" className="form-label label-batch">
                     Milk Type
                   </label>
                   {/* <input
                     className="form-control p-2"
                     type="text"
                     placeholder="Milk Type"
-                    name="milk_type"
-                    value={milk_type}
+                    name="milkType"
+                    value={milkType}
                     onChange={(e) => onChange(e)}
                     required
                   /> */}
                   <select
                     className="form-select"
                     onChange={(e) => onChange(e)}
-                    value={milk_type}
-                    name="milk_type"
+                    value={milkType}
+                    name="milkType"
                     required
                   >
                     {/* <option selected>Select milk type form menu</option> */}
@@ -124,35 +148,35 @@ const Form = () => {
                   </select>
                 </div>
                 <div className="col-md-6 col-lg-3">
-                  <label for="water_content" className="form-label">
+                  <label for="waterContent" className="form-label label-batch">
                     Water Content (in %)
                   </label>
                   <input
                     className="form-control p-2"
                     type="number"
                     placeholder="Water Content"
-                    name="water_content"
-                    value={water_content}
+                    name="waterContent"
+                    value={waterContent}
                     onChange={(e) => onChange(e)}
                     required
                   />
                 </div>
                 <div className="col-md-6 col-lg-3">
-                  <label for="fat_content" className="form-label">
+                  <label for="fatContent" className="form-label label-batch">
                     Fat Content (in %)
                   </label>
                   <input
                     className="form-control p-2"
                     type="number"
                     placeholder="Fat Content"
-                    name="fat_content"
-                    value={fat_content}
+                    name="fatContent"
+                    value={fatContent}
                     onChange={(e) => onChange(e)}
                     required
                   />
                 </div>
                 <div className="col-md-6 col-lg-3">
-                  <label for="volume" className="form-label">
+                  <label for="volume" className="form-label label-batch">
                     Volume
                   </label>
                   <input
@@ -171,29 +195,29 @@ const Form = () => {
 
               <div className="row">
                 <div className="col-md-6">
-                  <label for="retailer_name" className="form-label">
+                  <label for="retailer" className="form-label label-batch">
                     Retailer Name
                   </label>
                   <input
                     className="form-control p-2"
                     type="text"
                     placeholder="Retailer Name"
-                    name="retailer_name"
-                    value={retailer_name}
+                    name="retailer"
+                    value={retailer}
                     onChange={(e) => onChange(e)}
                     required
                   />
                 </div>
                 <div className="col-md-6">
-                  <label for="sensor_id" className="form-label">
+                  <label for="sensorId" className="form-label label-batch">
                     Sensor ID
                   </label>
                   <input
                     className="form-control p-2"
                     type="text"
                     placeholder="Sensor ID"
-                    name="sensor_id"
-                    value={sensor_id}
+                    name="sensorId"
+                    value={sensorId}
                     onChange={(e) => onChange(e)}
                     required
                   />
