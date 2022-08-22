@@ -14,9 +14,7 @@ const BatchDetails = () => {
     const [waterContent,setWaterContent] = useState(''); 
     const [date,setDate] = useState(''); 
     const [loading,setLoading] = useState(true); 
-    const params = useParams();
     const { user } = useContext(AuthContext);
-    console.log(params.num);
     // useEffect(() => {
     //     const fetchData = async() => {
     //         const config = {
@@ -74,14 +72,15 @@ const BatchDetails = () => {
           "milkBatchNumber": formData.milkBatchNumber,
         }
     }
-    const res = await axios.post("http://localhost:8081/api/querygeneratedmilkcert", config)
-    console.log(res);
-    setCattle(res.type);
-    setWaterContent(res.watercontent);
-    setFatContent(res.fatContent);
-    setBatchHolder(res.milkBatchHolder);
-    setRetailer(res.retailer);
-    setDate(res.dateOfMilkCert);
+    const res = await axios.get("http://localhost:8081/api/querygeneratedmilkcert", config)
+    console.log(res.data.result);
+    setCattle(res.data.result.type);
+    setWaterContent(res.data.result.watercontent);
+    setFatContent(res.data.result.fatContent);
+    setBatchHolder(res.data.result.milkBatchHolder);
+    setRetailer(res.data.result.retailer);
+    setVolume(res.data.result.volume)
+    setDate(res.data.result.dateOfMilkCert);
     }
 
 

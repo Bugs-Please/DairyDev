@@ -21,7 +21,7 @@ const Tracking = () => {
   const [step, setStep] = useState(0);
   const [eventData, setEventData] = useState([])
   const [DocsData, setDocsData] = useState([])
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
   const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
@@ -47,7 +47,7 @@ const Tracking = () => {
   const FormSubmit = async (e) => {
     e.preventDefault();
     const fetchEvents = async () => {
-      setLoading(true)
+      // setLoading(true)
 
       const config = {
         headers: {
@@ -55,17 +55,17 @@ const Tracking = () => {
           'Accept': 'application/json',
         },
         params: {
-          "username": "darakamruta@gmail.com",
-          "sensorId": formData.sensorId,
+          "username": "adwait",
+          "sensorId": "1",
         }
       }
       const res = await axios.get("http://localhost:8081/api/getHistory", config)
       setEventData(res.data)
-      setLoading(false)
+      console.log(res.data)
+      // setLoading(false)
     }
 
     const fetchEvents2 = async () => {
-      setLoading(true)
 
       const config = {
         headers: {
@@ -83,17 +83,15 @@ const Tracking = () => {
       const res = await axios.get("http://localhost:8082/api/getalldocs", config)
       setDocsData(res.data.result)
       console.log(res.data.result)
-      setLoading(false)
     }
 
-    fetchEvents()
     fetchEvents2()
+    fetchEvents()
 
   }
 
 
   useEffect(() => {
-
   }, [])
 
   return (
@@ -178,8 +176,7 @@ const Tracking = () => {
               </div>
             </form>
           </div>
-          {
-            !loading ?
+          
               <Row>
                 <Col xs={6} md={6}>
                   <div className="main_container mt-3">
@@ -191,13 +188,13 @@ const Tracking = () => {
                         </div>
                         <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
                           <div class="w-100 text-center py-1 px-2">
-                            <span class="text-medium">Shipped Via:</span> {DocsData.Bill.address}
+                            <span class="text-medium">Shipped Via:</span> {DocsData?.Bill?.address}
                           </div>
                           <div class="w-100 text-center py-1 px-2">
-                            <span class="text-medium">Status:</span> {DocsData.LabReport.status}
+                            <span class="text-medium">Status:</span> {DocsData?.LabReport?.status}
                           </div>
                           <div class="w-100 text-center py-1 px-2">
-                            <span class="text-medium">Expected Date:</span> {DocsData.Bill.estimatedDeliveryDate}
+                            <span class="text-medium">Expected Date:</span> {DocsData?.Bill?.estimatedDeliveryDate}
                           </div>
                         </div>
                         <div class="card-body"></div>
@@ -212,9 +209,9 @@ const Tracking = () => {
                                 step === 0 && (
                                   <div>
                                     <h6>Milk received with Fatcontent : </h6>
-                                     <p> {DocsData.MilkCert.fatContent} </p>
+                                     <p> {DocsData?.MilkCert?.fatContent} </p>
                                       <h6> and waterContent : </h6>
-                                     <p>{DocsData.MilkCert.watercontent}</p>  
+                                     <p>{DocsData?.MilkCert?.watercontent}</p>  
                                     <h6>Milk sent to Shipper</h6>
                                   </div>
                                 )
@@ -227,9 +224,9 @@ const Tracking = () => {
                                 step === 1 && (
                                   <div>
                                     <h6>Shipping Cost</h6>
-                                    <p>{DocsData.Bill.shippingCost}</p>
+                                    <p>{DocsData?.Bill?.shippingCost}</p>
                                     <h6>Estimated Delivery Date Given</h6>
-                                    <p>{DocsData.Bill.estimatedDeliveryDate}</p>
+                                    <p>{DocsData?.Bill?.estimatedDeliveryDate}</p>
                                   </div>
                                 )
                               }
@@ -241,9 +238,9 @@ const Tracking = () => {
                                 step === 2 && (
                                   <div>
                                     <h6>Milk received from co-operative and status is</h6>
-                                    <p>{DocsData.LabReport.status}</p>
+                                    <p>{DocsData?.LabReport?.status}</p>
                                     <h6>Milk sent for distribution to</h6>
-                                    <p>{DocsData.LabReport.labReportHolder}</p>
+                                    <p>{DocsData?.LabReport?.labReportHolder}</p>
                                   </div>
                                 )
                               }
@@ -271,10 +268,7 @@ const Tracking = () => {
                   {/* { !loading ? <LocationMap eventData={eventData} /> : <Loader /> } */}
                   <LocationMap eventData={eventData} />
                 </Col>
-              </Row> : <div>
-
-              </div>
-          }
+              </Row> 
 
         </Col>
 
