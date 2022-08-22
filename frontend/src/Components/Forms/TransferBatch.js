@@ -35,7 +35,7 @@ const TransferBatch = () => {
 
     }
 
-    const res = await axios.put("https://20ed-45-127-121-90.in.ngrok.io/api/transfermilkcert", data)
+    const res = await axios.put("http://localhost:8081/api/transfermilkcert", data)
     console.log(res)
 
   };

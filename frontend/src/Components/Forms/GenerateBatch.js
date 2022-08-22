@@ -66,7 +66,7 @@ const GenerateBatch = () => {
 
     }
 
-    const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/generatemilkcertificate", data)
+    const res = await axios.post("http://localhost:8081/api/generatemilkcertificate", data)
     console.log(res)
 
 

@@ -44,7 +44,7 @@ const GenerateLabReport = () => {
     };
 
     const res = await axios.post(
-      "https://20ed-45-127-121-90.in.ngrok.io/api/generateLabreport",
+      "http://localhost:8084/api/generateLabreport/",
       data
     );
     console.log(res);
