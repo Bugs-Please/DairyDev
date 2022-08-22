@@ -35,7 +35,7 @@ const TransferShippingBill = () => {
     };
 
     const res = await axios.put(
-      "https://20ed-45-127-121-90.in.ngrok.io/api/transfermilkcertandshippingbill",
+      "http://localhost:8083/api/transfermilkcertandshippingbill/",
       data
     );
     console.log(res);

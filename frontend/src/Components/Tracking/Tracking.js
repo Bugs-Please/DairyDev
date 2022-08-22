@@ -55,7 +55,7 @@ const Tracking = () => {
               'Accept': 'application/json',
           },
           params: {
-            "username": "adwaitnsk2017@gmail.com",
+            "username": "darakamruta@gmail.com",
             "sensorId": formData.sensorId ,
           }
       }
@@ -73,7 +73,7 @@ const Tracking = () => {
               'Accept': 'application/json',
           },
           params: {
-            "username": "adwaitnsk2017@gmail.com",
+            "username": user.auth.currentUser.email,
             "milkBatchNumber": formData.milkBatchNumber ,
             "billNumber": formData.billNumber,
             "labReportNumber" : formData.labReportNumber
