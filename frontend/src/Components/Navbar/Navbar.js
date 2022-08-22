@@ -31,8 +31,9 @@ const Navbar = () => {
                             <Nav.Link className="mr-auto text-dark" href="#AboutUs">About Us</Nav.Link>
                             {
                                 !user ? (
-                                    <NavDropdown className="mr-auto text-dark" title="Login | Register" >
-                                
+                                    <NavDropdown className="mr-auto" title={
+                                        <span className="text-primary my-auto">Login | Register</span>
+                                    }>
                                     <NavDropdown.Item className="text-dark" href="/login">
                                         Farmer
                                     </NavDropdown.Item>
