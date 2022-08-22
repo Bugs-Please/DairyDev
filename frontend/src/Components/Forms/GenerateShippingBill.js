@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../Sidebar/Sidebar";
 
-const ShippingBillForm = () => {
+const GenerateShippingBill = () => {
   const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
@@ -155,4 +155,4 @@ const ShippingBillForm = () => {
   );
 };
 
-export default ShippingBillForm;
+export default GenerateShippingBill;

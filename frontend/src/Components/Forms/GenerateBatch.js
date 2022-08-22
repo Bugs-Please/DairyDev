@@ -2,10 +2,10 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
-import Sidebar from "../../Components/Sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import "./BatchForm.css";
 
-const Form = () => {
+const GenerateBatch = () => {
   const { user } = useContext(AuthContext);
    
 
@@ -240,4 +240,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default GenerateBatch;
