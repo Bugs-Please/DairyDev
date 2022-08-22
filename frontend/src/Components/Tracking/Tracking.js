@@ -78,6 +78,7 @@ const Tracking = () => {
           "billNumber": formData.billNumber,
           "labReportNumber": formData.labReportNumber
         }
+
       }
       const res = await axios.get("http://localhost:8082/api/getalldocs", config)
       setDocsData(res.data)

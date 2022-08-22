@@ -41,7 +41,7 @@ const GenerateShippingBill = () => {
     };
 
     const res = await axios.post(
-      "https://20ed-45-127-121-90.in.ngrok.io/api/generateshippingbill",
+      "http://localhost:8083/api/generateshippingbill/",
       data
     );
     console.log(res);

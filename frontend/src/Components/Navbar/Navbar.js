@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import Container from 'react-bootstrap/Container';
-import { doc, getDoc, collection } from "firebase/firestore";
+// import { doc, getDoc, collection } from "firebase/firestore";
 import Nav from 'react-bootstrap/Nav';
 import Header from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import NavLogo from "../../Assets/images/NavLogo.png";
 import { AuthContext } from '../../AuthProvider';
-import { auth, db } from '../../firebase';
+import { auth } from '../../firebase';
 
 
 const Navbar = () => {
@@ -31,8 +31,9 @@ const Navbar = () => {
                             <Nav.Link className="mr-auto text-dark" href="#AboutUs">About Us</Nav.Link>
                             {
                                 !user ? (
-                                    <NavDropdown className="mr-auto text-dark" title="Login | Register" >
-                                
+                                    <NavDropdown className="mr-auto" title={
+                                        <span className="text-primary my-auto">Login | Register</span>
+                                    }>
                                     <NavDropdown.Item className="text-dark" href="/login">
                                         Farmer
                                     </NavDropdown.Item>

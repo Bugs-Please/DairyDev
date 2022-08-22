@@ -33,11 +33,12 @@ const TransferLabReport = () => {
       username: user.auth.currentUser.email,
       milkBatchNumber: formData.milkBatchNumber,
       billNumber: formData.billNumber,
-      newBillHolder: formData.newBillHolder
+      labReportNumber : formData.labReportNumber,
+      newLabReportHolder: formData.newLabReportHolder
     };
 
     const res = await axios.put(
-      "https://20ed-45-127-121-90.in.ngrok.io/api/transfermilkcertandshippingbillandlabreport",
+      "http://localhost:8084/api/transfermilkcertandshippingbillandlabreport/",
       data
     );
     console.log(res);

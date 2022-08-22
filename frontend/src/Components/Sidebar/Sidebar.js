@@ -92,6 +92,25 @@ const Sidebar = props => {
                        : <></>
 
                     }
+
+
+                    {
+                        userData.role=="5" ?
+                        <>
+                         <li>
+                        <a href="/generatelabreport" className="nav-link px-0 align-middle text-white">
+                            <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">Generate Lab Report</span>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="/transferlabreport" className="nav-link px-0 align-middle text-white">
+                            <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">Transfer Lab Report </span>
+                        </a>
+                    </li> 
+                        </>
+                       : <></>
+
+                    }
                    
                     {
                         userData.role=="2" ?  <li>
