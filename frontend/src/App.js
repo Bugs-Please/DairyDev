@@ -15,6 +15,7 @@ import Tracking from './Components/Tracking/Tracking';
 import Form from './Components/BatchForm/BatchForm';
 import FarmerList from './Screens/Dashboard/FarmerList';
 import TransferBaForm from './Components/TransferForm/TransferBatchForm';
+import BatchDetails from './Screens/Dashboard/BatchDetails';
 
 const App = () => {
     return (
@@ -29,7 +30,7 @@ const App = () => {
                 <Route path = "/new-batch" element={<Form/>} />
                 <Route path = "/farmers" element={<FarmerList/>} />
                 <Route path = "/transferbatch" element={<TransferBaForm/>} />
-                
+                <Route path = "/batch-details/:num" element={<BatchDetails/>} />
             </Routes>
         </Router>
         </AuthProvider>
