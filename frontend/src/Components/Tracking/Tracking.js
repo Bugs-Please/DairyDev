@@ -55,8 +55,8 @@ const Tracking = () => {
           'Accept': 'application/json',
         },
         params: {
-          "username": "adwait",
-          "sensorId": "1",
+          "username": user.auth.currentUser.email,
+          "sensorId": formData.sensorId,
         }
       }
       const res = await axios.get("http://localhost:8081/api/getHistory", config)
