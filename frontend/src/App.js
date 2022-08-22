@@ -12,10 +12,13 @@ import LandingPage from './Screens/LandingPage/LandingPage';
 import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
 import Tracking from './Components/Tracking/Tracking';
-import Form from './Components/BatchForm/BatchForm';
 import FarmerList from './Screens/Dashboard/FarmerList';
-import TransferBaForm from './Components/TransferForm/TransferBatchForm';
-import BatchDetails from './Screens/Dashboard/BatchDetails';
+import GenerateBatch from './Components/Forms/GenerateBatch';
+import TransferBatch from './Components/Forms/TransferBatch';
+import GenerateShippingBill from './Components/Forms/GenerateShippingBill';
+import TransferShippingBill from './Components/Forms/TransferShippingBill';
+import GenerateLabReport from './Components/Forms/GenerateLabReport';
+import TransferLabReport from './Components/Forms/TransferLabReport';
 
 const App = () => {
     return (
@@ -27,10 +30,16 @@ const App = () => {
                 <Route path = "/signup" element={<Signup />} />
                 <Route path = "/dashboard" element={<Dashboard/>} />
                 <Route path = "/tracking" element={<Tracking/>} />
-                <Route path = "/new-batch" element={<Form/>} />
+                <Route path = "/new-batch" element={<GenerateBatch/>} />
                 <Route path = "/farmers" element={<FarmerList/>} />
-                <Route path = "/transferbatch" element={<TransferBaForm/>} />
-                <Route path = "/batch-details/:num" element={<BatchDetails/>} />
+                <Route path = "/transferbatch" element={<TransferBatch/>} />
+                <Route path = "/generateshippingbill" element={<GenerateShippingBill/>} />
+                <Route path = "/transfershippingbill" element={<TransferShippingBill/>} />
+                <Route path = "/generatelabreport" element={<GenerateLabReport/>} />
+                <Route path = "/transferlabreport" element={<TransferLabReport/>} />
+
+
+                
             </Routes>
         </Router>
         </AuthProvider>

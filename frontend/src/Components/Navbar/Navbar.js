@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import Container from 'react-bootstrap/Container';
+// import { doc, getDoc, collection } from "firebase/firestore";
 import Nav from 'react-bootstrap/Nav';
 import Header from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -10,7 +11,8 @@ import { auth } from '../../firebase';
 
 const Navbar = () => {
     const { user } = useContext(AuthContext); 
-    console.log(user)
+     
+    
     return (
         <header>
             <Header expand='lg' collapseOnSelect className="d-flex">
@@ -26,12 +28,12 @@ const Navbar = () => {
                         <Nav className="ml-auto">
                         
                             <Nav.Link className="mr-auto text-dark" href="#home">Home</Nav.Link>
-                            <Nav.Link className="mr-auto text-dark" href="/dashboard">Dashboard</Nav.Link>
                             <Nav.Link className="mr-auto text-dark" href="#AboutUs">About Us</Nav.Link>
                             {
                                 !user ? (
-                                    <NavDropdown className="mr-auto text-dark" title="Login | Register" >
-                                
+                                    <NavDropdown className="mr-auto" title={
+                                        <span className="text-primary my-auto">Login | Register</span>
+                                    }>
                                     <NavDropdown.Item className="text-dark" href="/login">
                                         Farmer
                                     </NavDropdown.Item>
@@ -42,7 +44,11 @@ const Navbar = () => {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                                 ) : 
-                                <Nav.Link className="text-dark" onClick={()=>auth.signOut()}>Logout</Nav.Link>
+                                <>
+                                    <Nav.Link className="text-dark" onClick={()=>auth.signOut()}>Logout</Nav.Link>
+                                    <Nav.Link className="mr-auto text-dark" href="/dashboard">Dashboard</Nav.Link>
+                                </>
+                            
                             }
                            
 

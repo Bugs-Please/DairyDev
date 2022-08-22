@@ -1,12 +1,13 @@
 import axios from "axios";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { auth, db } from "../../firebase";
 import { FcGoogle } from "react-icons/fc"
 import { FaFacebookF, FaApple } from "react-icons/fa"
 import group from "./group.svg";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -15,41 +16,48 @@ const Signup = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [role, setRole] = useState('')
-
+    const navigate = useNavigate();
+    
     const register = async (e) => {
         e.preventDefault()
+        navigate('/')
         const userCreds = await createUserWithEmailAndPassword(auth, email, password)
         const user = userCreds.user;
-        await addDoc(collection(db, "users"), {
+        const docRef = doc(db, "users", user.email);
+        
+        const userdata ={
             uid: user.uid,
             role: role,
             email : user.email,
-          });
+        }
 
+        const firebaseUser = await setDoc(docRef,userdata);
+        console.log(firebaseUser)
+       
           const data = {
             "username" : email
           };
 
       
     // console.log(role);
-    if(role==="1")
+    if(role==="3")
     {
-        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
+        const res = await axios.post("http://localhost:8081/api/registerenrolluserorg1", data)
         console.log(res)
     }
     if(role==="2")
     {
-        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
-        console.log(res)
-    }
-    if(role==="3")
-    {
-        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
+        const res = await axios.post("http://localhost:8082/api/registerenrolluserorg2", data)
         console.log(res)
     }
     if(role==="4")
     {
-        const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/registerenrolluserorg1", data)
+        const res = await axios.post("http://localhost:8083/api/registerenrolluserorg3", data)
+        console.log(res)
+    }
+    if(role==="5")
+    {
+        const res = await axios.post("http://localhost:8084/api/registerenrolluserorg4", data)
         console.log(res)
     }
 
@@ -177,10 +185,10 @@ const Signup = () => {
                                 <select id="select" value={role} onChange={handleChange} className="form-control custom-select custom-select-sm col-md-12 shadow-none">
                                     <option selected>Select your user role</option>
                                     <option value="1">Dairy Farmer</option>
-                                    <option value="2">Cooperative</option>
-                                    <option value="3">Milk chilling centre</option>
-                                    <option value="4">Milk packaging centre</option>
-                                    <option value="5">Consumer</option>
+                                    <option value="2">Retailer</option>
+                                    <option value="3">Cooperative</option>
+                                    <option value="4">Shipper</option>
+                                    <option value="5">Production Unit</option>
                                 </select>
                             </div>
 
