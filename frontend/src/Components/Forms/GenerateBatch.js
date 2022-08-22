@@ -3,79 +3,95 @@ import React, { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../Sidebar/Sidebar";
+import { useNavigate } from "react-router-dom";
 import "./BatchForm.css";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const GenerateBatch = () => {
-  const { user } = useContext(AuthContext);
-   
+    const { user } = useContext(AuthContext);
+    
 
-  const [formData, setFormData] = useState({
-    username: "",
-    milkBatchNumber: "",
-    milkBatchHolder: "",
-    milkType: "cow",
-    waterContent: "",
-    fatContent: "",
-    volume: "",
-    retailer: "",
-    sensorId: "",
-  });
+    const [formData, setFormData] = useState({
+      username: "",
+      milkBatchNumber: "",
+      milkBatchHolder: "",
+      milkType: "cow",
+      waterContent: "",
+      fatContent: "",
+      volume: "",
+      retailer: "",
+      sensorId: "",
+    });
 
-  const {
-    milkBatchNumber,
-    milkBatchHolder,
-    milkType,
-    waterContent,
-    fatContent,
-    volume,
-    retailer,
-    sensorId,
-  } = formData;
+    const {
+      milkBatchNumber,
+      milkBatchHolder,
+      milkType,
+      waterContent,
+      fatContent,
+      volume,
+      retailer,
+      sensorId,
+    } = formData;
 
-  const onChange = (e) => {
-    console.log(e.target.name, e.target.value);
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const FormSubmit = async (e) => {
-    e.preventDefault();
-    // const batchForm = new FormData();
-    // batchForm.append("username",user.auth.currentUser.email)    
-    // batchForm.append("milkBatchNumber",formData.milkBatchNumber)
-    // batchForm.append("milkBatchHolder",formData.milkBatchHolder)
-    // batchForm.append("milkType",formData.milkType)
-    // batchForm.append("waterContent",formData.waterContent)
-    // batchForm.append("fatContent",formData.fatContent)
-    // batchForm.append("volume",formData.volume)
-    // batchForm.append("retailer",formData.retailer)
-    // batchForm.append("sensorId",formData.sensorId)
-    // // batchForm.append("milkBatchHolder","Farmer2")
-    // batchForm.append("date","22/02/2022")
-    // console.log(...batchForm)
+    const onChange = (e) => {
+        console.log(e.target.name, e.target.value);
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    const FormSubmit = async (e) => {
+        e.preventDefault();
+        // const batchForm = new FormData();
+        // batchForm.append("username",user.auth.currentUser.email)    
+        // batchForm.append("milkBatchNumber",formData.milkBatchNumber)
+        // batchForm.append("milkBatchHolder",formData.milkBatchHolder)
+        // batchForm.append("milkType",formData.milkType)
+        // batchForm.append("waterContent",formData.waterContent)
+        // batchForm.append("fatContent",formData.fatContent)
+        // batchForm.append("volume",formData.volume)
+        // batchForm.append("retailer",formData.retailer)
+        // batchForm.append("sensorId",formData.sensorId)
+        // // batchForm.append("milkBatchHolder","Farmer2")
+        // batchForm.append("date","22/02/2022")
+        // console.log(...batchForm)
 
-    const data = {
-      "username" : user.auth.currentUser.email , 
-      "milkBatchNumber" : formData.milkBatchNumber ,
-      "milkBatchHolder" : formData.milkBatchHolder,
-      "milkType" : formData.milkType ,
-      "waterContent" : formData.waterContent,
-      "fatContent" : formData.fatContent,
-      "volume" : formData.volume,
-      "retailer" : formData.retailer,
-      "sensorId" : formData.sensorId ,
-      "date" : "21/02/2022"
+        const data = {
+          "username" : user.auth.currentUser.email , 
+          "milkBatchNumber" : formData.milkBatchNumber ,
+          "milkBatchHolder" : formData.milkBatchHolder,
+          "milkType" : formData.milkType ,
+          "waterContent" : formData.waterContent,
+          "fatContent" : formData.fatContent,
+          "volume" : formData.volume,
+          "retailer" : formData.retailer,
+          "sensorId" : formData.sensorId ,
+          "date" : "21/02/2022"
 
-    }
+        }
 
-    const res = await axios.post("http://localhost:8081/api/generatemilkcertificate", data)
-    console.log(res)
+        const res = await axios.post("http://localhost:8081/api/generatemilkcertificate", data)
+        console.log(res)
+        if(res.status === "201") {
+            toast.info("Batch is Generated!!")
+        }  
 
 
 
 
-  };
+    };
 
   return (
     <div style={{ "overflow-x": "hidden" }}>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
       <Row className="outer-container">
         <Sidebar />
 
