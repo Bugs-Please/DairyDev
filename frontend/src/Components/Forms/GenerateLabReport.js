@@ -4,24 +4,26 @@ import { Col, Row } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../Sidebar/Sidebar";
 
-const ShippingBillForm = () => {
+const GenerateLabReport = () => {
   const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     username: "",
     milkBatchNumber: "",
     billNumber: "",
-    shippingCost: "",
-    address: "",
-    estimatedDeliveryDate: "",
+    labReportNumber: "",
+    status: "",
+    date: "",
+    labReportHolder:""
   });
 
   const {
     milkBatchNumber,
     billNumber,
-    shippingCost,
-    address,
-    estimatedDeliveryDate,
+    labReportNumber,
+    status,
+    date,
+    labReportHolder
   } = formData;
 
   const onChange = (e) => {
@@ -35,13 +37,14 @@ const ShippingBillForm = () => {
       username: user.auth.currentUser.email,
       milkBatchNumber: formData.milkBatchNumber,
       billNumber: formData.billNumber,
-      shippingCost: formData.shippingCost,
-      address: formData.address,
-      estimatedDeliveryDate: formData.estimatedDeliveryDate,
+      labReportNumber: formData.labReportNumber,
+      status: formData.status,
+      date: formData.date,
+      labReportHolder: formData.labReportHolder
     };
 
     const res = await axios.post(
-      "https://20ed-45-127-121-90.in.ngrok.io/api/generateshippingbill",
+      "https://20ed-45-127-121-90.in.ngrok.io/api/generateLabreport",
       data
     );
     console.log(res);
@@ -54,7 +57,7 @@ const ShippingBillForm = () => {
 
         <Col xs={10} className="form-section batch-form-section">
           <div className="user-heading border p-2 px-3 mt-4 m-4">
-            <h3> Hello Shipper!</h3>
+            <h3> Hello Customer!</h3>
           </div>
           <h5 className="m-4 p-2">Create New Shipping Bill</h5>
           <div className="form-block border p-4 px-5 mt-3 m-4">
@@ -95,30 +98,30 @@ const ShippingBillForm = () => {
             
               <div className="row">
                 <div className="col-md-6">
-                <label for="shippingCost" className="form-label">
-                    Shipping Cost
+                <label for="labReportNumber" className="form-label">
+                    Lab Report Number
                   </label>
                   <input
                     className="form-control p-2"
-                    type="number"
-                    placeholder="Shipping Cost"
-                    name="shippingCost"
-                    value={shippingCost}
+                    type="text"
+                    placeholder="Lab Report Number"
+                    name="labReportNumber"
+                    value={labReportNumber}
                     onChange={(e) => onChange(e)}
                     required
                   />
                 </div>
                 <br />
                 <div className="col-md-6">
-                  <label for="estimatedDeliveryDate" className="form-label">
-                    Estimated Delivery Date
+                  <label for="status" className="form-label">
+                    Status
                   </label>
                   <input
                     className="form-control p-2"
-                    type="date"
-                    placeholder="Estimated Delivery Date"
-                    name="estimatedDeliveryDate"
-                    value={estimatedDeliveryDate}
+                    type="text"
+                    placeholder="Status"
+                    name="status"
+                    value={status}
                     onChange={(e) => onChange(e)}
                     required
                   />
@@ -126,17 +129,37 @@ const ShippingBillForm = () => {
               </div>
               <br />
 
-              <label for="address" className="form-label">
-                Address
-              </label>
-              <textarea
-                className="form-control p-2"
-                placeholder="Address"
-                name="address"
-                value={address}
-                onChange={(e) => onChange(e)}
-                required
-              ></textarea>
+              <div className="row">
+              <div className="col-md-6">
+                  <label for="date" className="form-label">
+                    Date
+                  </label>
+                  <input
+                    className="form-control p-2"
+                    type="date"
+                    placeholder="Date"
+                    name="date"
+                    value={date}
+                    onChange={(e) => onChange(e)}
+                    required
+                  />
+                </div>
+                <br />
+                <div className="col-md-6">
+                  <label for="labReportHolder" className="form-label">
+                  Lab Report Holder
+                  </label>
+                  <input
+                    className="form-control p-2"
+                    type="text"
+                    placeholder="Lab Report Holder"
+                    name="labReportHolder"
+                    value={labReportHolder}
+                    onChange={(e) => onChange(e)}
+                    required
+                  />
+                </div>
+              </div>
               <br />
 
               <br />
@@ -155,4 +178,4 @@ const ShippingBillForm = () => {
   );
 };
 
-export default ShippingBillForm;
+export default GenerateLabReport;
