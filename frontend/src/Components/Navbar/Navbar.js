@@ -1,16 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Container from 'react-bootstrap/Container';
+import { doc, getDoc, collection } from "firebase/firestore";
 import Nav from 'react-bootstrap/Nav';
 import Header from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import NavLogo from "../../Assets/images/NavLogo.png";
 import { AuthContext } from '../../AuthProvider';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 
 
 const Navbar = () => {
     const { user } = useContext(AuthContext); 
-    console.log(user)
+     
+    
     return (
         <header>
             <Header expand='lg' collapseOnSelect className="d-flex">
@@ -26,7 +28,6 @@ const Navbar = () => {
                         <Nav className="ml-auto">
                         
                             <Nav.Link className="mr-auto text-dark" href="#home">Home</Nav.Link>
-                            <Nav.Link className="mr-auto text-dark" href="/dashboard">Dashboard</Nav.Link>
                             <Nav.Link className="mr-auto text-dark" href="#AboutUs">About Us</Nav.Link>
                             {
                                 !user ? (
@@ -42,7 +43,11 @@ const Navbar = () => {
                                     </NavDropdown.Item>
                                 </NavDropdown>
                                 ) : 
-                                <Nav.Link className="text-dark" onClick={()=>auth.signOut()}>Logout</Nav.Link>
+                                <>
+                                    <Nav.Link className="text-dark" onClick={()=>auth.signOut()}>Logout</Nav.Link>
+                                    <Nav.Link className="mr-auto text-dark" href="/dashboard">Dashboard</Nav.Link>
+                                </>
+                            
                             }
                            
 
