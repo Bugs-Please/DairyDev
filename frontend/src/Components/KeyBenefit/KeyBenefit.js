@@ -4,7 +4,7 @@ import lock from "../../Assets/images/Lock.png";
 import trace from "../../Assets/images/Trace.png";
 import digi from "../../Assets/images/Digi.png";
 import cow from "../../Assets/images/BackgroundCow.png";
-import { Container, Row,Col } from "react-bootstrap";
+import {  Row,Col } from "react-bootstrap";
 
 
 const KeyBenefit = () => {
@@ -121,7 +121,7 @@ const KeyBenefit = () => {
                 ipsa ipsum!
               </p>
               <a href="#working-process">
-                <button className="btn btn-outline-primary learn-more">
+                <button className="btn btn-outline-primary rounded-3 learn-more">
                   Learn More
                 </button>
               </a>
@@ -175,7 +175,7 @@ const KeyBenefit = () => {
                 ipsa ipsum!
               </p>
               <a href="#working-process">
-                <button className="btn btn-outline-primary learn-more">
+                <button className="btn btn-outline-primary rounded-3 learn-more">
                   Learn How
                 </button>
               </a>
@@ -184,50 +184,25 @@ const KeyBenefit = () => {
         </div>
       </section>
 
-      {/* <section className="doing-what">
+      <section className="doing-what">
         <div className="container">
           <div className="cow-img">
             <img
-              className="w-100"
+              className="w-100 mx-auto d-block"
               src={cow}
-              width = "100vw"
               alt="Tab with cow"
               style={{ objectFit: "contain" }}
             />
           </div>
           <div className="doing-what-details">
-            <h3>What we are doing?</h3>
-            <p className="para-details p-">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ad, odit consequuntur exercitationem maxime sapiente cupiditate, corrupti explicabo similique ab nisi illum sed aut. Eum mollitia voluptate omnis!
+            <h3 style={{"color":"#fff"}}>What we are doing?</h3>
+            <p className="para-details">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
+            {/* <button className="btn btn-light rounded-3 button-join-now">Join Now</button> */}
           </div>
         </div>
-      </section> */}
-      <div className="container">
-        <Row className="align-items-center">
-          {/* <Col>
-            <img
-              className="w-100"
-              src={cow}
-              width = "100vw"
-              alt="Tab with cow"
-              style={{ objectFit: "contain" }}
-            />
-          </Col> */}
-          <Col className="what_we_do mb-5" >
-            
-              <div style={{padding:"9.5rem",color:"white"}} className="d-flex flex-column">
-              <h3 style={{color:"white"}}>What we are doing?</h3>
-              <p style={{paddingRight:"12rem"}}> 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ad, odit consequuntur exercitationem maxime sapiente cupiditate, corrupti explicabo similique ab nisi illum sed aut. Eum mollitia voluptate omnis!
-                
-              </p>
-              <button className='w-25 btn bg-white rounded-3 text-black'>Join Now!!</button>
-              </div>
-              
-          </Col>
-        </Row>
-      </div>
+      </section>
     </div>
   );
 };

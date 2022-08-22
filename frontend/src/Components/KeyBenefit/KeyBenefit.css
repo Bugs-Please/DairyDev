@@ -9,42 +9,69 @@
 
 .benefit-cell {
     border: 1px solid black;
+    border-radius: 10px;
     /* margin:10px; */
     background-color: #3B5999;
 }
 
 .benefit-cell-heading {
     margin-bottom: 10px;
+    
 }
 
 .doing-what {
     position: relative;
     margin-bottom: 3%;
+    color: #fff;
 }
 
 .doing-what-details {
     position: absolute;
-    top: 35%;
+    top: 25%;
     color: #fff;
-    left: 20%;
+    left: 15%;
 
 }
 
 .para-details {
-    padding-right: 50%;
-    /* justify-content: baseline; */
-    margin-top: 2%;
+    padding-right: 40%;
+    justify-content: baseline;
+    /* margin-top: 2%; */
 }
 
 .cow-img {
     padding: 0% 0%;
 }
 
+/* .button-join-now
+{
+    display:none;
+} */
+
 
 @media only screen and (min-width: 992px) {
     .cow-img {
         padding: 0% 10%;
     }
+
+    .para-details {
+        padding-right: 40%;
+        justify-content: baseline;
+        margin-top: 2%;
+    }
+
+    .doing-what-details {
+        position: absolute;
+        top: 35%;
+        color: #fff;
+        left: 25%;
+    
+    }
+
+    /* .button-join-now
+{
+    display:block;
+} */
 }
 
 .what_we_do {
