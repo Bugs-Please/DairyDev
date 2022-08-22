@@ -19,6 +19,7 @@ import GenerateShippingBill from './Components/Forms/GenerateShippingBill';
 import TransferShippingBill from './Components/Forms/TransferShippingBill';
 import GenerateLabReport from './Components/Forms/GenerateLabReport';
 import TransferLabReport from './Components/Forms/TransferLabReport';
+import BatchDetails from './Screens/Dashboard/BatchDetails';
 
 const App = () => {
     return (
@@ -37,7 +38,7 @@ const App = () => {
                 <Route path = "/transfershippingbill" element={<TransferShippingBill/>} />
                 <Route path = "/generatelabreport" element={<GenerateLabReport/>} />
                 <Route path = "/transferlabreport" element={<TransferLabReport/>} />
-
+                <Route path = "/batch-details/:num" element={<BatchDetails/>} />
 
                 
             </Routes>
