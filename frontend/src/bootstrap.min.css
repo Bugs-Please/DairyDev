@@ -3751,7 +3751,7 @@ fieldset:disabled a.btn {
     padding: 0.5rem 1rem;
     /* font-size: 0.765625rem; */
     line-height: 1.5;
-    border-radius: 0
+    border-radius: 10px;
 }
 
 .btn-block {
