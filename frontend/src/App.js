@@ -12,9 +12,10 @@ import LandingPage from './Screens/LandingPage/LandingPage';
 import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
 import Tracking from './Components/Tracking/Tracking';
-import Form from './Components/BatchForm/BatchForm';
 import FarmerList from './Screens/Dashboard/FarmerList';
+import Form from './Components/BatchForm/BatchForm';
 import TransferBaForm from './Components/TransferForm/TransferBatchForm';
+import ShippingBillForm from './Components/Forms/ShippingBillForm';
 
 const App = () => {
     return (
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path = "/new-batch" element={<Form/>} />
                 <Route path = "/farmers" element={<FarmerList/>} />
                 <Route path = "/transferbatch" element={<TransferBaForm/>} />
+                <Route path = "/generateshippingbill" element={<ShippingBillForm/>} />
                 
             </Routes>
         </Router>

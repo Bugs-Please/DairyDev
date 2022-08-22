@@ -55,7 +55,7 @@ const Form = () => {
     const data = {
       "username" : user.auth.currentUser.email , 
       "milkBatchNumber" : formData.milkBatchNumber ,
-      "milkBatchHolder" : "Gujrat Farms",
+      "milkBatchHolder" : formData.milkBatchHolder,
       "milkType" : formData.milkType ,
       "waterContent" : formData.waterContent,
       "fatContent" : formData.fatContent,
@@ -104,12 +104,12 @@ const Form = () => {
                 </div>
                 <div className="col-md-6">
                   <label for="milkBatchHolder" className="form-label label-batch">
-                    Lab Report Number
+                    Milk Batch Holder
                   </label>
                   <input
                     className="form-control p-2"
                     type="text"
-                    placeholder="Lab Report Number"
+                    placeholder="Milk Batch Holder"
                     name="milkBatchHolder"
                     value={milkBatchHolder}
                     onChange={(e) => onChange(e)}

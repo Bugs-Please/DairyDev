@@ -53,7 +53,7 @@ const TransferBatchForm = () => {
           <div className="form-block border p-4 px-5 mt-3 m-4">
             <form onSubmit={FormSubmit}>
            
-            <label for="batch_number" className="form-label">
+            <label for="milkBatchNumber" className="form-label">
                     Milk Batch Number
                   </label>
                   <input
@@ -66,7 +66,7 @@ const TransferBatchForm = () => {
                     required
                   />
                   <br />
-                  <label for="batch_number" className="form-label">
+                  <label for="newMilkCertHolder" className="form-label">
                     New Milk Batch Holder
                   </label>
                   <input
