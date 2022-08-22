@@ -84,7 +84,6 @@ const BatchDetails = () => {
     setDate(res.dateOfMilkCert);
     }
 
-    
 
     fetchEvents();
 
