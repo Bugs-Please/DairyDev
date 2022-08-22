@@ -5,7 +5,7 @@ import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../Sidebar/Sidebar";
 
 
-const TransferBatchForm = () => {
+const TransferBatch = () => {
   const { user } = useContext(AuthContext);
    
 
@@ -95,4 +95,4 @@ const TransferBatchForm = () => {
   );
 };
 
-export default TransferBatchForm;
+export default TransferBatch;

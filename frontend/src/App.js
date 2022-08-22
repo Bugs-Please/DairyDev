@@ -13,11 +13,13 @@ import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
 import Tracking from './Components/Tracking/Tracking';
 import FarmerList from './Screens/Dashboard/FarmerList';
-import Form from './Components/BatchForm/BatchForm';
-import TransferBaForm from './Components/TransferForm/TransferBatchForm';
-import ShippingBillForm from './Components/Forms/ShippingBillForm';
+import GenerateBatch from './Components/Forms/GenerateBatch';
+import TransferBatch from './Components/Forms/TransferBatch';
+import GenerateShippingBill from './Components/Forms/GenerateShippingBill';
 import TransferShippingBill from './Components/Forms/TransferShippingBill';
 import GenerateLabReport from './Components/Forms/GenerateLabReport';
+import TransferLabReport from './Components/Forms/TransferLabReport';
+
 const App = () => {
     return (
         <AuthProvider>
@@ -28,12 +30,14 @@ const App = () => {
                 <Route path = "/signup" element={<Signup />} />
                 <Route path = "/dashboard" element={<Dashboard/>} />
                 <Route path = "/tracking" element={<Tracking/>} />
-                <Route path = "/new-batch" element={<Form/>} />
+                <Route path = "/new-batch" element={<GenerateBatch/>} />
                 <Route path = "/farmers" element={<FarmerList/>} />
-                <Route path = "/transferbatch" element={<TransferBaForm/>} />
-                <Route path = "/generateshippingbill" element={<ShippingBillForm/>} />
+                <Route path = "/transferbatch" element={<TransferBatch/>} />
+                <Route path = "/generateshippingbill" element={<GenerateShippingBill/>} />
                 <Route path = "/transfershippingbill" element={<TransferShippingBill/>} />
                 <Route path = "/generatelabreport" element={<GenerateLabReport/>} />
+                <Route path = "/transferlabreport" element={<TransferLabReport/>} />
+
 
                 
             </Routes>
