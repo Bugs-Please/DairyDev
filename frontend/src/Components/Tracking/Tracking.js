@@ -18,93 +18,94 @@ const styles = {
   verticalAlign: "top",
 };
 const Tracking = () => {
-    const [step, setStep] = useState(0);
-    const [eventData, setEventData] = useState([])
-    const [DocsData, setDocsData] = useState([])
-    const [loading, setLoading] = useState(true)
-    const { user } = useContext(AuthContext);
+  const [step, setStep] = useState(0);
+  const [eventData, setEventData] = useState([])
+  const [DocsData, setDocsData] = useState([])
+  const [loading, setLoading] = useState(false)
+  const { user } = useContext(AuthContext);
 
-    const [formData, setFormData] = useState({
-      username: "",
-      milkBatchNumber: "",
-      sensorId: "",
-      billNumber: "",
-      labReportNumber: ""
-    });
-  
-    const {
-      milkBatchNumber,
-      sensorId,
-      billNumber,
-      labReportNumber
-    } = formData;
-  
-    const onChange = (e) => {
-      console.log(e.target.name, e.target.value);
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const [formData, setFormData] = useState({
+    username: "",
+    milkBatchNumber: "",
+    sensorId: "",
+    billNumber: "",
+    labReportNumber: ""
+  });
 
-    const FormSubmit = async (e) => {
-      e.preventDefault();
-      const fetchEvents = async () => {
-        setLoading(true)
-  
-        const config = {
-          headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-          },
-          params: {
-            "username": "darakamruta@gmail.com",
-            "sensorId": formData.sensorId ,
-          }
+  const {
+    milkBatchNumber,
+    sensorId,
+    billNumber,
+    labReportNumber
+  } = formData;
+
+  const onChange = (e) => {
+    console.log(e.target.name, e.target.value);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const FormSubmit = async (e) => {
+    e.preventDefault();
+    const fetchEvents = async () => {
+      setLoading(true)
+
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        params: {
+          "username": "adwaitnsk2017@gmail.com",
+          "sensorId": formData.sensorId,
+        }
       }
       const res = await axios.get("http://localhost:8081/api/getHistory", config)
-        setEventData(res.data)
-        setLoading(false)
-      }
+      setEventData(res.data)
+      setLoading(false)
+    }
 
-      const fetchEvents2 = async () => {
-        setLoading(true)
-  
-        const config = {
-          headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-          },
-          params: {
-            "username": user.auth.currentUser.email,
-            "milkBatchNumber": formData.milkBatchNumber ,
-            "billNumber": formData.billNumber,
-            "labReportNumber" : formData.labReportNumber
-          }
+    const fetchEvents2 = async () => {
+      setLoading(true)
+
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        params: {
+          "username": "adwaitnsk2017@gmail.com",
+          "milkBatchNumber": formData.milkBatchNumber,
+          "billNumber": formData.billNumber,
+          "labReportNumber": formData.labReportNumber
+        }
+
       }
       const res = await axios.get("http://localhost:8082/api/getalldocs", config)
-        setDocsData(res.data)
-        setLoading(false)
-      }
-  
-      fetchEvents()
-      fetchEvents2()
-
+      setDocsData(res.data)
+      setLoading(false)
     }
-  
+
+    fetchEvents()
+    fetchEvents2()
+
+  }
+
 
   useEffect(() => {
-    
+
   }, [])
 
-    return (
-      <div style={{ "overflow-x": "hidden" }}>
+  return (
+    <div style={{ "overflow-x": "hidden" }}>
       <Row>
-      <Sidebar />
+        <Sidebar />
         <Col xs={10} md={10}>
-        <div className="user-heading border p-2 px-3 mt-4 m-4 text-center">
-        <h3> Track Batch Report</h3>
-        </div>
+          <div className="user-heading border p-2 px-3 mt-4 m-4 text-center">
+            <h3> Track Batch Report</h3>
+          </div>
           <div className="form-block border p-4 px-5 mt-3 m-4">
-            
-            <form onSubmit={FormSubmit}>    
+
+            <form onSubmit={FormSubmit}>
               <div className="row">
                 <div className="col-md-6">
                   <label for="milkBatchNumber" className="form-label label-batch">
@@ -163,7 +164,7 @@ const Tracking = () => {
                   />
                 </div>
               </div>
-              
+
               <br />
 
               <br />
@@ -175,80 +176,108 @@ const Tracking = () => {
                 />
               </div>
             </form>
-        </div>
-      {
-         !loading ? 
-         <Row>
-         <Col xs={6} md={6}>
-       <div className="main_container mt-3">
-           <div class="container padding-bottom-3x mb-1">
-       <div class="card mb-3">
-         <div class="p-4 text-center text-white text-lg bg-dark rounded-top">
-           <span class="text-uppercase">Tracking Order No - </span>
-           <span class="text-medium">001698653lp</span>
-         </div>
-         <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
-           <div class="w-100 text-center py-1 px-2">
-             <span class="text-medium">Shipped Via:</span> UPS Ground
-           </div>
-           <div class="w-100 text-center py-1 px-2">
-             <span class="text-medium">Status:</span> Checking Quality
-           </div>
-           <div class="w-100 text-center py-1 px-2">
-             <span class="text-medium">Expected Date:</span> APR 27, 2021
-           </div>
-         </div>
-         <div class="card-body"></div>
-       </div>
-       <div class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
-         <div class="custom-control custom-checkbox mr-3">
-           <Steps current={step} vertical style={styles}>
-             <Steps.Item
-               onClick={() => setStep(0)}
-               title="Finished"
-               description={
-                 step === 0 && (
-                   <div>
-                     <h1>Description</h1>
-                     <p>Loren ipsum</p>
-                   </div>
-                 )
-               }
-             />
-             <Steps.Item
-               onClick={() => setStep(1)}
-               title="In Progress"
-               description="Description"
-             />
-             <Steps.Item
-               onClick={() => setStep(2)}
-               title="Waiting"
-               description="Description"
-             />
-             <Steps.Item
-               onClick={() => setStep(3)}
-               title="Waiting"
-               description="Description"
-             />
-           </Steps>
-         </div>
-         </div>
-         </div>
-      
-         </div>
-         </Col>
-         <Col xs={4} md={4}>
-         {/* { !loading ? <LocationMap eventData={eventData} /> : <Loader /> } */}
-         <LocationMap eventData={eventData} /> 
-         </Col>
-         </Row> : <div>
-           
-         </div>
-      }
-          
+          </div>
+          {
+            !loading ?
+              <Row>
+                <Col xs={6} md={6}>
+                  <div className="main_container mt-3">
+                    <div class="container padding-bottom-3x mb-1">
+                      <div class="card mb-3">
+                        <div class="p-4 text-center text-white text-lg bg-dark rounded-top">
+                          <span class="text-uppercase">Tracking Order No - </span>
+                          <span class="text-medium">001698653lp</span>
+                        </div>
+                        <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
+                          <div class="w-100 text-center py-1 px-2">
+                            <span class="text-medium">Shipped Via:</span> UPS Ground
+                          </div>
+                          <div class="w-100 text-center py-1 px-2">
+                            <span class="text-medium">Status:</span> Checking Quality
+                          </div>
+                          <div class="w-100 text-center py-1 px-2">
+                            <span class="text-medium">Expected Date:</span> APR 27, 2021
+                          </div>
+                        </div>
+                        <div class="card-body"></div>
+                      </div>
+                      <div class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-sm-between align-items-center">
+                        <div class="custom-control custom-checkbox mr-3">
+                          <Steps current={step} vertical style={styles}>
+                            <Steps.Item
+                              onClick={() => setStep(0)}
+                              title="Small co-operative"
+                              description={
+                                step === 0 && (
+                                  <div>
+                                    <h6>Milk received from batch 5</h6>
+                                    <p>7.15 AM</p>
+                                    <h6>Milk sent to large co-operative</h6>
+                                    <p>7.45 AM</p>
+                                  </div>
+                                )
+                              }
+                            />
+                            <Steps.Item
+                              onClick={() => setStep(1)}
+                              title="Transportation"
+                              description={
+                                step === 1 && (
+                                  <div>
+                                    <h6>Reached destination 1</h6>
+                                    <p>10 AM</p>
+                                    <h6>Reached destination 2</h6>
+                                    <p>12.30 PM</p>
+                                  </div>
+                                )
+                              }
+                            />
+                            <Steps.Item
+                              onClick={() => setStep(2)}
+                              title="Processing unit"
+                              description={
+                                step === 2 && (
+                                  <div>
+                                    <h6>Milk received from small co-operative</h6>
+                                    <p>3 PM</p>
+                                    <h6>Milk sent for distribution after processing</h6>
+                                    <p>4.30 PM</p>
+                                  </div>
+                                )
+                              }
+                            />
+
+                            <Steps.Item
+                              onClick={() => setStep(3)}
+                              title="Shopkeeper"
+                              description={
+                                step === 3 && (
+                                  <div>
+                                    <h6>Milk received</h6>
+                                    <p>8 PM</p>
+                                  </div>
+                                )
+                              }
+                            />
+                          </Steps>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </Col>
+                <Col xs={4} md={4}>
+                  {/* { !loading ? <LocationMap eventData={eventData} /> : <Loader /> } */}
+                  <LocationMap eventData={eventData} />
+                </Col>
+              </Row> : <div>
+
+              </div>
+          }
+
         </Col>
-       
-    </Row>
+
+      </Row>
 
     </div>
   );
