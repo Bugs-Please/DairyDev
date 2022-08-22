@@ -7,6 +7,7 @@ import { auth, db } from "../../firebase";
 import { FcGoogle } from "react-icons/fc"
 import { FaFacebookF, FaApple } from "react-icons/fa"
 import group from "./group.svg";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -15,9 +16,11 @@ const Signup = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [role, setRole] = useState('')
-
+    const navigate = useNavigate();
+    
     const register = async (e) => {
         e.preventDefault()
+        navigate('/')
         const userCreds = await createUserWithEmailAndPassword(auth, email, password)
         const user = userCreds.user;
         await addDoc(collection(db, "users"), {

@@ -17,8 +17,9 @@ const Login = () => {
         e.preventDefault()
         const res = await signInWithEmailAndPassword(auth, email, password);
         console.log(res)
-
     }
+
+    
     return (
         /* <div className="login">
             <div className="container d-flex">
@@ -80,7 +81,6 @@ const Login = () => {
                     <br/>
                     <FacebookLoginButton />
                     <br/>
-                    
 
                     <form onSubmit={login}>
                             <div className="form-group col-md-12">
