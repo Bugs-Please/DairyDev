@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../Sidebar/Sidebar";
 import { ToastContainer, toast } from 'react-toastify';
@@ -62,6 +62,9 @@ const TransferBatch = () => {
         <Col xs={10} className="form-section batch-form-section">
           <div className="user-heading border p-2 px-3 mt-4 m-4">
             <h3> Hello Cooperative!</h3>
+            <Button type="simpleQuery" onClick={FormSubmit}>
+   Query
+</Button>
           </div>
           <h5 className="m-4 p-2">Create New Batch</h5>
           <div className="form-block border p-4 px-5 mt-3 m-4">
