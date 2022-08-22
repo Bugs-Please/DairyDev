@@ -26,23 +26,23 @@ const Navbar = () => {
                         <Nav className="ml-auto">
                         
                             <Nav.Link className="mr-auto text-dark" href="#home">Home</Nav.Link>
-                            <Nav.Link className="mr-auto" href="/dashboard">Dashboard</Nav.Link>
-                            <Nav.Link className="mr-auto" href="#AboutUs">About Us</Nav.Link>
+                            <Nav.Link className="mr-auto text-dark" href="/dashboard">Dashboard</Nav.Link>
+                            <Nav.Link className="mr-auto text-dark" href="#AboutUs">About Us</Nav.Link>
                             {
                                 !user ? (
-                                    <NavDropdown className="mr-auto" title="Login | Register" >
+                                    <NavDropdown className="mr-auto text-dark" title="Login | Register" >
                                 
-                                    <NavDropdown.Item href="/login">
+                                    <NavDropdown.Item className="text-dark" href="/login">
                                         Farmer
                                     </NavDropdown.Item>
-                                    <NavDropdown.Item href="/signup">Co-Operative</NavDropdown.Item>
+                                    <NavDropdown.Item className="text-dark" href="/signup">Co-Operative</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item href="/signup">
+                                    <NavDropdown.Item className="text-dark" href="/signup">
                                         Processing Unit
                                     </NavDropdown.Item>
                                 </NavDropdown>
                                 ) : 
-                                <Nav.Link onClick={()=>auth.signOut()}>Logout</Nav.Link>
+                                <Nav.Link className="text-dark" onClick={()=>auth.signOut()}>Logout</Nav.Link>
                             }
                            
 

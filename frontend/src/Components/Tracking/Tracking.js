@@ -99,7 +99,11 @@ const Tracking = () => {
       <Row>
       <Sidebar />
         <Col xs={10} md={10}>
+        <div className="user-heading border p-2 px-3 mt-4 m-4 text-center">
+        <h3> Track Batch Report</h3>
+        </div>
           <div className="form-block border p-4 px-5 mt-3 m-4">
+            
             <form onSubmit={FormSubmit}>    
               <div className="row">
                 <div className="col-md-6">
