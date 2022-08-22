@@ -16,7 +16,7 @@ import FarmerList from './Screens/Dashboard/FarmerList';
 import Form from './Components/BatchForm/BatchForm';
 import TransferBaForm from './Components/TransferForm/TransferBatchForm';
 import ShippingBillForm from './Components/Forms/ShippingBillForm';
-
+import TransferShippingBill from './Components/Forms/TransferShippingBill'
 const App = () => {
     return (
         <AuthProvider>
@@ -31,6 +31,8 @@ const App = () => {
                 <Route path = "/farmers" element={<FarmerList/>} />
                 <Route path = "/transferbatch" element={<TransferBaForm/>} />
                 <Route path = "/generateshippingbill" element={<ShippingBillForm/>} />
+                <Route path = "/transfershippingbill" element={<TransferShippingBill/>} />
+
                 
             </Routes>
         </Router>
