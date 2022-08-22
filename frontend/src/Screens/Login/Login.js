@@ -8,7 +8,8 @@ import {
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Container, Row, Col } from "react-bootstrap";
 import { auth } from "../../firebase";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -17,6 +18,9 @@ const Login = () => {
         e.preventDefault()
         const res = await signInWithEmailAndPassword(auth, email, password);
         console.log(res)
+        if(res.status == "201") {
+            toast.info("You are Logged in!!");
+        }
     }
 
     

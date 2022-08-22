@@ -3,7 +3,8 @@ import React, { useContext, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { AuthContext } from "../../AuthProvider";
 import Sidebar from "../Sidebar/Sidebar";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const GenerateLabReport = () => {
   const { user } = useContext(AuthContext);
 
@@ -48,10 +49,24 @@ const GenerateLabReport = () => {
       data
     );
     console.log(res);
+    if(res.status === "201") {
+      toast.info("Lab report is Generated!!")
+    }  
   };
 
   return (
     <div style={{ "overflow-x": "hidden" }}>
+      <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+        />
       <Row className="outer-container">
         <Sidebar />
 

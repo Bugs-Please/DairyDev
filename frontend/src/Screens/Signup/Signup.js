@@ -8,7 +8,8 @@ import { FcGoogle } from "react-icons/fc"
 import { FaFacebookF, FaApple } from "react-icons/fa"
 import group from "./group.svg";
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Signup = () => {
@@ -20,7 +21,7 @@ const Signup = () => {
     
     const register = async (e) => {
         e.preventDefault()
-        navigate('/')
+        
         const userCreds = await createUserWithEmailAndPassword(auth, email, password)
         const user = userCreds.user;
         const docRef = doc(db, "users", user.email);
@@ -44,21 +45,33 @@ const Signup = () => {
     {
         const res = await axios.post("http://localhost:8081/api/registerenrolluserorg1", data)
         console.log(res)
+        if(res.status === "201") {
+            toast.info("Sign up Successfull")
+        }
     }
     if(role==="2")
     {
         const res = await axios.post("http://localhost:8082/api/registerenrolluserorg2", data)
         console.log(res)
+        if(res.status === "201") {
+            toast.info("Sign up Successfull")
+        }
     }
     if(role==="4")
     {
         const res = await axios.post("http://localhost:8083/api/registerenrolluserorg3", data)
         console.log(res)
+        if(res.status === "201") {
+            toast.info("Sign up Successfull")
+        }
     }
     if(role==="5")
     {
         const res = await axios.post("http://localhost:8084/api/registerenrolluserorg4", data)
         console.log(res)
+        if(res.status === "201") {
+            toast.info("Sign up Successfull")
+        }
     }
 
     }
@@ -156,6 +169,17 @@ const Signup = () => {
         //     </div>
         // </div
         <Row style={{ display: "flex", justifyContent: 'space-evenly', overflowX: 'hidden', overflowY: 'hidden' }}>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <Col /* md={7 */ className="col-12 col-md-7">
                 <div className="d-flex flex-column justify-content-center p-5 m-5">
                     <h1 className="title text-center">Register</h1>
