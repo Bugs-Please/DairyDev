@@ -8,7 +8,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import axios from 'axios'
 import LocationMap from '../../Components/Map/Map'
 import Loader from '../../Components/Loader/Loader'
-import { AuthContext } from "../../AuthProvider";
+import { AuthContext } from "../../AuthProvider"
 
 
 

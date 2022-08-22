@@ -74,7 +74,7 @@ const BatchDetails = () => {
           "milkBatchNumber": formData.milkBatchNumber,
         }
     }
-    const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/generatemilkcertificate", config)
+    const res = await axios.post("http://localhost:8081/api/querygeneratedmilkcert", config)
     console.log(res);
     setCattle(res.type);
     setWaterContent(res.watercontent);
