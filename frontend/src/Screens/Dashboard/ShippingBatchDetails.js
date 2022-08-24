@@ -2,47 +2,22 @@ import React,{useState,useEffect} from 'react';
 import { Container, Row, Col, } from 'react-bootstrap';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import axios from 'axios';
-const BatchDetails = () => {
+
+const ShippingBatchDetails = () => {
     const [cattle,setCattle] = useState('');
     const [batchHolder,setBatchHolder] = useState(''); 
     const [volume,setVolume] = useState(''); 
     const [retailer,setRetailer] = useState(''); 
     const [fatContent,setFatContent] = useState(''); 
     const [waterContent,setWaterContent] = useState(''); 
-    const [date,setDate] = useState(''); 
-    
-    useEffect(() => {
-        const fetchData = async() => {
-            const config = {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                params: {
-                  "username": "adwaitnsk2017@gmail.com",
-                  "milkBatchNumber": params.id,
-                }
-            }
-            const res = await axios.post("https://20ed-45-127-121-90.in.ngrok.io/api/generatemilkcertificate", config)
-            console.log(res);
-            setCattle(res.type);
-            setWaterContent(res.watercontent);
-            setFatContent(res.fatContent);
-            setBatchHolder(res.milkBatchHolder);
-            setRetailer(res.retailer);
-            setDate(res.dateOfMilkCert);
-        }
-    
-        fetchData();
-    }, [])
-    
-    return ( 
+    const [date,setDate] = useState('');
+    return (
         <Row className='align-items-center'>
             <Sidebar />
             <Col xs={10} md={10} sm="auto" >
                 <Container className="d-flex flex-column justify-content-center align-content-center">
                     <div className="d-flex justify-content-around align-items-center">
-                        <h3>Batch Report</h3>
+                        <h3>Shipping Batch Report</h3>
                         <h6>
                             Date: {date}
                         </h6>
@@ -82,7 +57,7 @@ const BatchDetails = () => {
                 </Container>
             </Col>
         </Row>
-  )
+    )
 }
 
-export default BatchDetails
+export default ShippingBatchDetails
