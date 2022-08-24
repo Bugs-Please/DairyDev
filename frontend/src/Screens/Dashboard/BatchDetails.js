@@ -94,36 +94,36 @@ const BatchDetails = () => {
             <Sidebar />
             <Col xs={10} md={10} sm="auto" >
                 <Container className="d-flex flex-column justify-content-center align-content-center">
-                <form onSubmit={FormSubmit}>
-              <div className="row">
-                <div className="col-md-6">
-                  <label for="milkBatchNumber" className="form-label label-batch">
-                    Milk Batch Number
-                  </label>
-                  <input
-                    className="form-control p-2"
-                    type="text"
-                    placeholder="Milk Batch Number"
-                    name="milkBatchNumber"
-                    value={milkBatchNumber}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
+                    <form onSubmit={FormSubmit}>
+                <div className="row">
+                    <div className="col-md-6">
+                    <label for="milkBatchNumber" className="form-label label-batch">
+                        Milk Batch Number
+                    </label>
+                    <input
+                        className="form-control p-2"
+                        type="text"
+                        placeholder="Milk Batch Number"
+                        name="milkBatchNumber"
+                        value={milkBatchNumber}
+                        onChange={(e) => onChange(e)}
+                        required
+                    />
+                    </div>
+                    
                 </div>
-                
-              </div>
 
-              <br />
+                <br />
 
-              <br />
-              <div class="mx-auto text-center">
-                <input
-                  type="submit"
-                  className="py-2 px-4 btn btn-primary"
-                  value="Track Now"
-                />
-              </div>
-            </form>
+                <br />
+                <div class="mx-auto text-center">
+                    <input
+                    type="submit"
+                    className="py-2 px-4 btn btn-primary"
+                    value="Track Now"
+                    />
+                </div>
+                </form>
 
                     <div className="d-flex justify-content-around align-items-center">
                         <h3>Batch Report</h3>

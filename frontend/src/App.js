@@ -20,8 +20,8 @@ import TransferShippingBill from './Components/Forms/TransferShippingBill';
 import GenerateLabReport from './Components/Forms/GenerateLabReport';
 import TransferLabReport from './Components/Forms/TransferLabReport';
 import BatchDetails from './Screens/Dashboard/BatchDetails';
-import ShippingBatchDetails from './Screens/Dashboard/ShippingBatchDetails';
-import ProcessingBatchDetails from './Screens/Dashboard/ProcessingBatchDetails';
+import ShippingBatchDetails from './Screens/Dashboard/ShippingBillDetails';
+import ProcessingBatchDetails from './Screens/Dashboard/ProcessingBillDetails';
 
 const App = () => {
     return (
