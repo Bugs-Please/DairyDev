@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import LocationMarker from './LocationInfoBox'
+import LocationMarker from './LocationMarker'
 import LocationInfoBox from './LocationInfoBox'
 import Map, {Marker} from 'react-map-gl';
 import "mapbox-gl/dist/mapbox-gl.css";
-import "./Map.css"
 
 // define constants
 const NATURAL_EVENT_WILDFIRE = 8;
@@ -36,13 +35,13 @@ const LocationMap = ({ eventData, center, zoom }) => {
         initialViewState={{
           longitude: longitude,
           latitude: latitude,
-          zoom: 7.5,
+          zoom: 3,
         }}
         mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
       >
-       {/* {markers} */}
+       {markers}
       </Map>
-      {/* {locationInfo && <LocationInfoBox info={locationInfo} />} */}
+      {locationInfo && <LocationInfoBox info={locationInfo} />}
         </div>
     )
 }

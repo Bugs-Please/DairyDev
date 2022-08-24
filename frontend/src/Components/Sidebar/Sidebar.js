@@ -70,6 +70,11 @@ const Sidebar = props => {
                             <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">Transfer Batch</span>
                         </a>
                     </li> 
+                    <li>
+                        <a href="/batch-details" className="nav-link px-0 align-middle text-white">
+                            <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">View Batch Details</span>
+                        </a>
+                    </li> 
                         </>
                        : <></>
 

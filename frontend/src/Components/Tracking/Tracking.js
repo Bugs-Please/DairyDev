@@ -8,7 +8,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import axios from 'axios'
 import LocationMap from '../../Components/Map/Map'
 import Loader from '../../Components/Loader/Loader'
-import { AuthContext } from "../../AuthProvider";
+import { AuthContext } from "../../AuthProvider"
 
 
 
@@ -21,7 +21,7 @@ const Tracking = () => {
   const [step, setStep] = useState(0);
   const [eventData, setEventData] = useState([])
   const [DocsData, setDocsData] = useState([])
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(true)
   const { user } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
@@ -47,7 +47,7 @@ const Tracking = () => {
   const FormSubmit = async (e) => {
     e.preventDefault();
     const fetchEvents = async () => {
-      setLoading(true)
+      // setLoading(true)
 
       const config = {
         headers: {
@@ -55,17 +55,17 @@ const Tracking = () => {
           'Accept': 'application/json',
         },
         params: {
-          "username": "adwaitnsk2017@gmail.com",
+          "username": user.auth.currentUser.email,
           "sensorId": formData.sensorId,
         }
       }
       const res = await axios.get("http://localhost:8081/api/getHistory", config)
       setEventData(res.data)
-      setLoading(false)
+      console.log(res.data)
+      // setLoading(false)
     }
 
     const fetchEvents2 = async () => {
-      setLoading(true)
 
       const config = {
         headers: {
@@ -73,7 +73,7 @@ const Tracking = () => {
           'Accept': 'application/json',
         },
         params: {
-          "username": "adwaitnsk2017@gmail.com",
+          "username": user.auth.currentUser.email,
           "milkBatchNumber": formData.milkBatchNumber,
           "billNumber": formData.billNumber,
           "labReportNumber": formData.labReportNumber
@@ -81,18 +81,17 @@ const Tracking = () => {
 
       }
       const res = await axios.get("http://localhost:8082/api/getalldocs", config)
-      setDocsData(res.data)
-      setLoading(false)
+      setDocsData(res.data.result)
+      console.log(res.data.result)
     }
 
-    fetchEvents()
     fetchEvents2()
+    fetchEvents()
 
   }
 
 
   useEffect(() => {
-
   }, [])
 
   return (
@@ -177,26 +176,25 @@ const Tracking = () => {
               </div>
             </form>
           </div>
-          {
-            !loading ?
+          
               <Row>
                 <Col xs={6} md={6}>
                   <div className="main_container mt-3">
                     <div class="container padding-bottom-3x mb-1">
                       <div class="card mb-3">
                         <div class="p-4 text-center text-white text-lg bg-dark rounded-top">
-                          <span class="text-uppercase">Tracking Order No - </span>
-                          <span class="text-medium">001698653lp</span>
+                          <span class="text-uppercase">Sensor No - </span>
+                          <span class="text-medium">{sensorId}</span>
                         </div>
                         <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
                           <div class="w-100 text-center py-1 px-2">
-                            <span class="text-medium">Shipped Via:</span> UPS Ground
+                            <span class="text-medium">Shipped Via:</span> {DocsData?.Bill?.address}
                           </div>
                           <div class="w-100 text-center py-1 px-2">
-                            <span class="text-medium">Status:</span> Checking Quality
+                            <span class="text-medium">Status:</span> {DocsData?.LabReport?.status}
                           </div>
                           <div class="w-100 text-center py-1 px-2">
-                            <span class="text-medium">Expected Date:</span> APR 27, 2021
+                            <span class="text-medium">Expected Date:</span> {DocsData?.Bill?.estimatedDeliveryDate}
                           </div>
                         </div>
                         <div class="card-body"></div>
@@ -210,24 +208,25 @@ const Tracking = () => {
                               description={
                                 step === 0 && (
                                   <div>
-                                    <h6>Milk received from batch 5</h6>
-                                    <p>7.15 AM</p>
-                                    <h6>Milk sent to large co-operative</h6>
-                                    <p>7.45 AM</p>
+                                    <h6>Milk received with Fatcontent : </h6>
+                                     <p> {DocsData?.MilkCert?.fatContent} </p>
+                                      <h6> and waterContent : </h6>
+                                     <p>{DocsData?.MilkCert?.watercontent}</p>  
+                                    <h6>Milk sent to Shipper</h6>
                                   </div>
                                 )
                               }
                             />
                             <Steps.Item
                               onClick={() => setStep(1)}
-                              title="Transportation"
+                              title="Shipper"
                               description={
                                 step === 1 && (
                                   <div>
-                                    <h6>Reached destination 1</h6>
-                                    <p>10 AM</p>
-                                    <h6>Reached destination 2</h6>
-                                    <p>12.30 PM</p>
+                                    <h6>Shipping Cost</h6>
+                                    <p>{DocsData?.Bill?.shippingCost}</p>
+                                    <h6>Estimated Delivery Date Given</h6>
+                                    <p>{DocsData?.Bill?.estimatedDeliveryDate}</p>
                                   </div>
                                 )
                               }
@@ -238,10 +237,10 @@ const Tracking = () => {
                               description={
                                 step === 2 && (
                                   <div>
-                                    <h6>Milk received from small co-operative</h6>
-                                    <p>3 PM</p>
-                                    <h6>Milk sent for distribution after processing</h6>
-                                    <p>4.30 PM</p>
+                                    <h6>Milk received from co-operative and status is</h6>
+                                    <p>{DocsData?.LabReport?.status}</p>
+                                    <h6>Milk sent for distribution to</h6>
+                                    <p>{DocsData?.LabReport?.labReportHolder}</p>
                                   </div>
                                 )
                               }
@@ -249,12 +248,11 @@ const Tracking = () => {
 
                             <Steps.Item
                               onClick={() => setStep(3)}
-                              title="Shopkeeper"
+                              title="Retailer"
                               description={
                                 step === 3 && (
                                   <div>
                                     <h6>Milk received</h6>
-                                    <p>8 PM</p>
                                   </div>
                                 )
                               }
@@ -270,10 +268,7 @@ const Tracking = () => {
                   {/* { !loading ? <LocationMap eventData={eventData} /> : <Loader /> } */}
                   <LocationMap eventData={eventData} />
                 </Col>
-              </Row> : <div>
-
-              </div>
-          }
+              </Row> 
 
         </Col>
 
