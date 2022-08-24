@@ -18,7 +18,7 @@ const Login = () => {
         e.preventDefault()
         const res = await signInWithEmailAndPassword(auth, email, password);
         console.log(res)
-        if(res.status == "201") {
+        if(res.data.status == "201") {
             toast.info("You are Logged in!!");
         }
     }

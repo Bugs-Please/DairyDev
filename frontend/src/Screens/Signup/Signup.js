@@ -45,7 +45,7 @@ const Signup = () => {
     {
         const res = await axios.post("http://localhost:8081/api/registerenrolluserorg1", data)
         console.log(res)
-        if(res.status === "201") {
+        if(res.data.status === "201") {
             toast.info("Sign up Successfull")
         }
     }
@@ -53,7 +53,7 @@ const Signup = () => {
     {
         const res = await axios.post("http://localhost:8082/api/registerenrolluserorg2", data)
         console.log(res)
-        if(res.status === "201") {
+        if(res.data.status === "201") {
             toast.info("Sign up Successfull")
         }
     }
@@ -61,7 +61,7 @@ const Signup = () => {
     {
         const res = await axios.post("http://localhost:8083/api/registerenrolluserorg3", data)
         console.log(res)
-        if(res.status === "201") {
+        if(res.data.status === "201") {
             toast.info("Sign up Successfull")
         }
     }
@@ -69,7 +69,7 @@ const Signup = () => {
     {
         const res = await axios.post("http://localhost:8084/api/registerenrolluserorg4", data)
         console.log(res)
-        if(res.status === "201") {
+        if(res.data.status === "201") {
             toast.info("Sign up Successfull")
         }
     }
