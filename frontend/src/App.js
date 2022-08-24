@@ -20,6 +20,8 @@ import TransferShippingBill from './Components/Forms/TransferShippingBill';
 import GenerateLabReport from './Components/Forms/GenerateLabReport';
 import TransferLabReport from './Components/Forms/TransferLabReport';
 import BatchDetails from './Screens/Dashboard/BatchDetails';
+import ShippingBatchDetails from './Screens/Dashboard/ShippingBatchDetails';
+import ProcessingBatchDetails from './Screens/Dashboard/ProcessingBatchDetails';
 
 const App = () => {
     return (
@@ -38,9 +40,10 @@ const App = () => {
                 <Route path = "/transfershippingbill" element={<TransferShippingBill/>} />
                 <Route path = "/generatelabreport" element={<GenerateLabReport/>} />
                 <Route path = "/transferlabreport" element={<TransferLabReport/>} />
-                <Route path = "/batch-details" element={<BatchDetails/>} />
 
-                
+                <Route path = "/batch-details/:num" element={<BatchDetails/>} />
+                <Route path = "/shipping-batch" element = {<ShippingBatchDetails/>} />
+                <Route path = "/processing-batch" element = {<ProcessingBatchDetails/>} />
             </Routes>
         </Router>
         </AuthProvider>
