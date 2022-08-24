@@ -41,7 +41,7 @@ const App = () => {
                 <Route path = "/generatelabreport" element={<GenerateLabReport/>} />
                 <Route path = "/transferlabreport" element={<TransferLabReport/>} />
 
-                <Route path = "/batch-details/:num" element={<BatchDetails/>} />
+                <Route path = "/batch-details" element={<BatchDetails/>} />
                 <Route path = "/shipping-batch" element = {<ShippingBatchDetails/>} />
                 <Route path = "/processing-batch" element = {<ProcessingBatchDetails/>} />
             </Routes>

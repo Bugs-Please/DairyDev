@@ -27,22 +27,11 @@ const Navbar = () => {
                         
                         <Nav className="ml-auto">
                         
-                            <Nav.Link className="mr-auto text-dark" href="#home">Home</Nav.Link>
-                            <Nav.Link className="mr-auto text-dark" href="#AboutUs">About Us</Nav.Link>
+                            <Nav.Link className="mr-auto text-dark" href="/">Home</Nav.Link>
+                            <Nav.Link className="mr-auto text-dark" href="/about-us">About Us</Nav.Link>
                             {
                                 !user ? (
-                                    <NavDropdown className="mr-auto" title={
-                                        <span className="text-primary my-auto">Login | Register</span>
-                                    }>
-                                    <NavDropdown.Item className="text-dark" href="/login">
-                                        Farmer
-                                    </NavDropdown.Item>
-                                    <NavDropdown.Item className="text-dark" href="/signup">Co-Operative</NavDropdown.Item>
-                                    <NavDropdown.Divider />
-                                    <NavDropdown.Item className="text-dark" href="/signup">
-                                        Processing Unit
-                                    </NavDropdown.Item>
-                                </NavDropdown>
+                                    <Nav.Link className="mr-auto text-dark" href="/signup">Login | Register</Nav.Link>
                                 ) : 
                                 <>
                                     <Nav.Link className="text-dark" onClick={()=>auth.signOut()}>Logout</Nav.Link>
