@@ -11,6 +11,8 @@ const ShippingBatchDetails = () => {
     const [fatContent,setFatContent] = useState(''); 
     const [waterContent,setWaterContent] = useState(''); 
     const [date,setDate] = useState('');
+    const [loading,setLoading] = useState(true); 
+    const { user } = useContext(AuthContext);
     return (
         <Row className='align-items-center'>
             <Sidebar />
