@@ -9,8 +9,8 @@ const NATURAL_EVENT_WILDFIRE = 8;
 
 const LocationMap = ({ eventData, center, zoom }) => {
     const [locationInfo, setLocationInfo] = useState(null)
-    const [longitude, setlongitude] = useState(72)
-    const [latitude, setlatitude] = useState(23)
+    const [longitude, setlongitude] = useState(73.56)
+    const [latitude, setlatitude] = useState(22.23)
 
     var loop = [];
     const MAPBOX_TOKEN ="pk.eyJ1Ijoic21peWFrYXdhIiwiYSI6ImNqcGM0d3U4bTB6dWwzcW04ZHRsbHl0ZWoifQ.X9cvdajtPbs9JDMG-CMDsA";
@@ -29,13 +29,14 @@ const LocationMap = ({ eventData, center, zoom }) => {
     })
 
     return (
-        <div className="map">
+      
+        <div className="map" style={{"width":"100%", "margin":"1.25rem 0.15rem" }}>
            <Map
         mapboxAccessToken="pk.eyJ1IjoiYWR3YWl0MDkiLCJhIjoiY2w2dzBqYmtkMDFpOTNpcW1wYmJjYXZreiJ9.pZ206Nvhb-M1uhjoIUBZ4g"
         initialViewState={{
           longitude: longitude,
           latitude: latitude,
-          zoom: 3,
+          zoom: 5,
         }}
         mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
       >
