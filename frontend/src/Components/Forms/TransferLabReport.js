@@ -43,8 +43,8 @@ const TransferLabReport = () => {
       data
     );
     console.log(res);
-    if(res.status === "201") {
-      toast.info("Lab Report is Generated!!")
+    if(res.status === 202) {
+      toast.info("Lab Report is Transfered!!")
     } 
   };
 

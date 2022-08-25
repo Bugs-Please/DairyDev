@@ -46,8 +46,8 @@ const GenerateShippingBill = () => {
       data
     );
     console.log(res);
-    if(res.status === "201") {
-      toast.info(`Batch is transfered!!`)
+    if(res.status === 201) {
+      toast.info(`Shipping Bill Is Generated!!`)
     } 
   };
 

@@ -40,7 +40,7 @@ const TransferShippingBill = () => {
       data
     );
     console.log(res);
-    if(res.status === "201") {
+    if(res.status === 202) {
       toast.info("Shipping bill is Created!!")
     } 
   };

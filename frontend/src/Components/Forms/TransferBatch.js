@@ -38,8 +38,8 @@ const TransferBatch = () => {
 
     const res = await axios.put("http://localhost:8081/api/transfermilkcert", data)
     console.log(res)
-    if(res.status === "201") {
-      toast.info("Batch is Generated!!")
+    if(res.status === 202) {
+      toast.info("Batch Transferred Successfully!!")
     } 
   };
 

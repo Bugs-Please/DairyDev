@@ -3,6 +3,8 @@ import { Container, Row, Col, } from 'react-bootstrap';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import axios from 'axios';
 import { AuthContext } from "../../AuthProvider";
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BatchDetails = () => {
     const [cattle,setCattle] = useState('');
@@ -73,7 +75,12 @@ const BatchDetails = () => {
         }
     }
     const res = await axios.get("http://localhost:8081/api/querygeneratedmilkcert", config)
-    console.log(res.data.result);
+    console.log(res);
+    if(res.status === 200)
+    {
+        console.log("Batch ")
+        toast.info("Batch Details Retrieved")
+    }
     setCattle(res.data.result.type);
     setWaterContent(res.data.result.watercontent);
     setFatContent(res.data.result.fatContent);
@@ -91,6 +98,17 @@ const BatchDetails = () => {
     
     return ( 
         <Row className='align-items-center'>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <Sidebar />
             <Col xs={10} md={10} sm="auto" >
                 <Container className="d-flex flex-column justify-content-center align-content-center">

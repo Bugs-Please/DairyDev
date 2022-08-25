@@ -49,7 +49,7 @@ const GenerateLabReport = () => {
       data
     );
     console.log(res);
-    if(res.status === "201") {
+    if(res.status === 201) {
       toast.info("Lab report is Generated!!")
     }  
   };

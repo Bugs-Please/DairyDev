@@ -1,7 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, useContext} from 'react';
 import { Container, Row, Col, } from 'react-bootstrap';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import axios from 'axios';
+import { AuthContext } from '../../AuthProvider';
 
 const ProcessingBatchDetails = () => {
     const [status,setStatus] = useState('');

@@ -45,32 +45,47 @@ const Signup = () => {
     {
         const res = await axios.post("http://localhost:8081/api/registerenrolluserorg1", data)
         console.log(res)
-        if(res.data.status === "201") {
+        if(res.data.status === "pass") {
             toast.info("Sign up Successfull")
+            setTimeout(() => {
+                navigate('/')
+            }, 3000);
         }
     }
     if(role==="2")
     {
         const res = await axios.post("http://localhost:8082/api/registerenrolluserorg2", data)
         console.log(res)
-        if(res.data.status === "201") {
+        if(res.data.status === "pass") {
             toast.info("Sign up Successfull")
+            setTimeout(() => {
+                navigate('/')
+            }, 3000);
+
         }
     }
     if(role==="4")
     {
         const res = await axios.post("http://localhost:8083/api/registerenrolluserorg3", data)
         console.log(res)
-        if(res.data.status === "201") {
+        if(res.data.status === "pass") {
             toast.info("Sign up Successfull")
+            setTimeout(() => {
+                navigate('/')
+            }, 3000);
+
         }
     }
     if(role==="5")
     {
         const res = await axios.post("http://localhost:8084/api/registerenrolluserorg4", data)
         console.log(res)
-        if(res.data.status === "201") {
+        if(res.data.status === "pass") {
             toast.info("Sign up Successfull")
+            setTimeout(() => {
+                navigate('/')
+            }, 3000);
+
         }
     }
 

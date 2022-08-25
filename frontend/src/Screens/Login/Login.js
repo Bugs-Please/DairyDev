@@ -9,17 +9,23 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { Container, Row, Col } from "react-bootstrap";
 import { auth } from "../../firebase";
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate();
 
     const login = async (e) => {
         e.preventDefault()
         const res = await signInWithEmailAndPassword(auth, email, password);
         console.log(res)
-        if(res.data.status == "201") {
+        if(res.user.email == email) {
             toast.info("You are Logged in!!");
+            setTimeout(() => {
+                navigate('/')
+            }, 3000);
         }
     }
 
@@ -72,7 +78,17 @@ const Login = () => {
         </div> */
 
         <Row style={{ display: "flex", justifyContent: 'space-evenly', overflowX: 'hidden', overflowY: 'hidden' }}>
-
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <Col className="d-sm-none d-md-block col-md-5">
                 <img src={group} style={{ height: "100vh" }} alt='milk can' />
             </Col>

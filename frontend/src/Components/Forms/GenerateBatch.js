@@ -70,7 +70,7 @@ const GenerateBatch = () => {
 
         const res = await axios.post("http://localhost:8081/api/generatemilkcertificate", data)
         console.log(res)
-        if(res.status === "201") {
+        if(res.status === 201) {
             toast.info("Batch is Generated!!")
         }  
 

@@ -9,6 +9,7 @@ import axios from 'axios'
 import LocationMap from '../../Components/Map/Map'
 import Loader from '../../Components/Loader/Loader'
 import { AuthContext } from "../../AuthProvider"
+import { toast, ToastContainer } from "react-toastify";
 
 
 
@@ -55,12 +56,16 @@ const Tracking = () => {
           'Accept': 'application/json',
         },
         params: {
-          "username": user.auth.currentUser.email,
+          "username": "darakamruta@gmail.com",
           "sensorId": formData.sensorId,
         }
       }
       const res = await axios.get("http://localhost:8081/api/getHistory", config)
       setEventData(res.data)
+      if(res.status == 200)
+      {
+        toast.info("Map Endpoints Retrieved !!")
+      }
       console.log(res.data)
       // setLoading(false)
     }
@@ -81,6 +86,11 @@ const Tracking = () => {
 
       }
       const res = await axios.get("http://localhost:8082/api/getalldocs", config)
+      if(res.status == 200)
+      {
+        toast.info("All Docs Data Retrieved !!")
+      }
+     
       setDocsData(res.data.result)
       console.log(res.data.result)
     }
@@ -96,6 +106,16 @@ const Tracking = () => {
 
   return (
     <div style={{ "overflow-x": "hidden" }}>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover/>
       <Row>
         <Sidebar />
         <Col xs={10} md={10}>
