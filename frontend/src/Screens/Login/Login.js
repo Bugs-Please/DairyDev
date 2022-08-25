@@ -18,7 +18,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const login = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const res = await signInWithEmailAndPassword(auth, email, password);
         console.log(res)
         if(res.user.email === email) {
