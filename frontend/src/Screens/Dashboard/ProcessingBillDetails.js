@@ -1,8 +1,9 @@
-import React,{useState,useEffect, useContext} from 'react';
+import React,{useState, useContext} from 'react';
 import { Container, Row, Col, } from 'react-bootstrap';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import axios from 'axios';
 import { AuthContext } from '../../AuthProvider';
+import Loader from '../../Components/Loader/Loader';
 
 const ProcessingBatchDetails = () => {
     const [status,setStatus] = useState('');
@@ -56,54 +57,63 @@ const ProcessingBatchDetails = () => {
         <Row className='align-items-center'>
             <Sidebar />
             <Col xs={10} md={10} sm="auto" >
-                <Container className="d-flex flex-column justify-content-center align-content-center">
-                <form onSubmit={FormSubmit}>
-              <div className="row">
-                <div className="col-md-6">
-                  <label for="milkBatchNumber" className="form-label label-batch">
-                    Milk Batch Number
-                  </label>
-                  <input
-                    className="form-control p-2"
-                    type="text"
-                    placeholder="Milk Batch Number"
-                    name="milkBatchNumber"
-                    value={milkBatchNumber}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                </div>
+                {
+                    loading ? 
+                    <>
+                        <Loader />
+                    </> : 
+                    <>
+                        <Container className="d-flex flex-column justify-content-center align-content-center">
+                            <form onSubmit={FormSubmit}>
+                        <div className="row">
+                            <div className="col-md-6">
+                            <label for="milkBatchNumber" className="form-label label-batch">
+                                Milk Batch Number
+                            </label>
+                            <input
+                                className="form-control p-2"
+                                type="text"
+                                placeholder="Milk Batch Number"
+                                name="milkBatchNumber"
+                                value={milkBatchNumber}
+                                onChange={(e) => onChange(e)}
+                                required
+                            />
+                            </div>
+                            
+                        </div>
+
+                        <br />
+
+                        <br />
+                        <div class="mx-auto text-center">
+                            <input
+                            type="submit"
+                            className="py-2 px-4 btn btn-primary"
+                            value="Track Now"
+                            />
+                        </div>
+                        </form>
+                                <div className="d-flex justify-content-around align-items-center">
+                                    <h3>Processing Unit Batch Report</h3>
+                                    <h6>
+                                        Status: {status}
+                                    </h6>
+                                </div>
+                                <Row className="justify-content-evenly">
+                                    <Col xs={6} md={4} sm={6} className="rounded-4 mt-4 mb-4 d-flex flex-column align-items-center text-left p-4" style={{"backgroundColor":"rgba(0,0,0,0.1)"}}>
+                                        <h5 style={{fontWeight:"500"}}>Date of Certificate Issued</h5>
+                                        <span style={{color:"#3B5999",fontWeight:"400"}}>{dateOfIssueCustomCert}</span>
+                                    </Col>
+                                    <Col xs={6} md={4} sm={6} className="rounded-4 mt-4 mb-4 d-flex flex-column align-items-center text-left p-4" style={{"backgroundColor":"rgba(0,0,0,0.1)"}}>
+                                        <h5 style={{fontWeight:"500"}}>Lab Report Holder</h5>
+                                        <span style={{color:"#3B5999",fontWeight:"400"}}>{labReportHolder}</span>
+                                    </Col>
+                                </Row>
+                            </Container>
+                    </>
+                }
                 
-              </div>
-
-              <br />
-
-              <br />
-              <div class="mx-auto text-center">
-                <input
-                  type="submit"
-                  className="py-2 px-4 btn btn-primary"
-                  value="Track Now"
-                />
-              </div>
-            </form>
-                    <div className="d-flex justify-content-around align-items-center">
-                        <h3>Processing Unit Batch Report</h3>
-                        <h6>
-                            Status: {status}
-                        </h6>
-                    </div>
-                    <Row className="justify-content-evenly">
-                        <Col xs={6} md={4} sm={6} className="rounded-4 mt-4 mb-4 d-flex flex-column align-items-center text-left p-4" style={{"backgroundColor":"rgba(0,0,0,0.1)"}}>
-                            <h5 style={{fontWeight:"500"}}>Date of Certificate Issued</h5>
-                            <span style={{color:"#3B5999",fontWeight:"400"}}>{dateOfIssueCustomCert}</span>
-                        </Col>
-                        <Col xs={6} md={4} sm={6} className="rounded-4 mt-4 mb-4 d-flex flex-column align-items-center text-left p-4" style={{"backgroundColor":"rgba(0,0,0,0.1)"}}>
-                            <h5 style={{fontWeight:"500"}}>Lab Report Holder</h5>
-                            <span style={{color:"#3B5999",fontWeight:"400"}}>{labReportHolder}</span>
-                        </Col>
-                    </Row>
-                </Container>
             </Col>
         </Row>
     )

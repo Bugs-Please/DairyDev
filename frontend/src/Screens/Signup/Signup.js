@@ -1,8 +1,8 @@
 import axios from "axios";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import {  doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { auth, db } from "../../firebase";
 import { FcGoogle } from "react-icons/fc"
 import { FaFacebookF, FaApple } from "react-icons/fa"
@@ -95,16 +95,16 @@ const Signup = () => {
         setRole(event.target.value)
     }
 
-    const ColoredLine = ({ color }) => (
-        <hr
-            style={{
-                color: color,
-                backgroundColor: color,
-                height: 1,
-                margin: 10
-            }}
-        />
-    );
+    // const ColoredLine = ({ color }) => (
+    //     <hr
+    //         style={{
+    //             color: color,
+    //             backgroundColor: color,
+    //             height: 1,
+    //             margin: 10
+    //         }}
+    //     />
+    // );
 
     return (
         // <div className="container">
