@@ -16,78 +16,82 @@ const Signup = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [role, setRole] = useState('')
+    const [phone, setPhoneNumber] = useState('');
+    const [otp, setOtp] = useState('');
+    const [role, setRole] = useState('');
     const navigate = useNavigate();
     
     const register = async (e) => {
         e.preventDefault()
-        
-        const userCreds = await createUserWithEmailAndPassword(auth, email, password)
-        const user = userCreds.user;
-        const docRef = doc(db, "users", user.email);
-        
-        const userdata ={
-            uid: user.uid,
-            role: role,
-            email : user.email,
+        if(password !== confirmPassword) {
+            toast.warn("Please Confirm your password");
         }
+        else {
+            const userCreds = await createUserWithEmailAndPassword(auth, email, password)
+            const user = userCreds.user;
+            const docRef = doc(db, "users", user.email);
+            
+            const userdata ={
+                uid: user.uid,
+                role: role,
+                email : user.email,
+            }
 
-        const firebaseUser = await setDoc(docRef,userdata);
-        console.log(firebaseUser)
-       
-          const data = {
-            "username" : email
-          };
+            const firebaseUser = await setDoc(docRef,userdata);
+            console.log(firebaseUser)
+            
+                const data = {
+                    "username" : email
+                };
+            // console.log(role);
+            if(role==="3")
+            {
+                const res = await axios.post("http://localhost:8081/api/registerenrolluserorg1", data)
+                console.log(res)
+                if(res.data.status === "pass") {
+                    toast.info("Sign up Successfull")
+                    setTimeout(() => {
+                        navigate('/')
+                    }, 3000);
+                }
+            }
+            if(role==="2")
+            {
+                const res = await axios.post("http://localhost:8082/api/registerenrolluserorg2", data)
+                console.log(res)
+                if(res.data.status === "pass") {
+                    toast.info("Sign up Successfull")
+                    setTimeout(() => {
+                        navigate('/')
+                    }, 3000);
 
-      
-    // console.log(role);
-    if(role==="3")
-    {
-        const res = await axios.post("http://localhost:8081/api/registerenrolluserorg1", data)
-        console.log(res)
-        if(res.data.status === "pass") {
-            toast.info("Sign up Successfull")
-            setTimeout(() => {
-                navigate('/')
-            }, 3000);
+                }
+            }
+            if(role==="4")
+            {
+                const res = await axios.post("http://localhost:8083/api/registerenrolluserorg3", data)
+                console.log(res)
+                if(res.data.status === "pass") {
+                    toast.info("Sign up Successfull")
+                    setTimeout(() => {
+                        navigate('/')
+                    }, 3000);
+
+                }
+            }
+            if(role==="5")
+            {
+                const res = await axios.post("http://localhost:8084/api/registerenrolluserorg4", data)
+                console.log(res)
+                if(res.data.status === "pass") {
+                    toast.info("Sign up Successfull")
+                    setTimeout(() => {
+                        navigate('/')
+                    }, 3000);
+
+                }
+            }
         }
-    }
-    if(role==="2")
-    {
-        const res = await axios.post("http://localhost:8082/api/registerenrolluserorg2", data)
-        console.log(res)
-        if(res.data.status === "pass") {
-            toast.info("Sign up Successfull")
-            setTimeout(() => {
-                navigate('/')
-            }, 3000);
-
-        }
-    }
-    if(role==="4")
-    {
-        const res = await axios.post("http://localhost:8083/api/registerenrolluserorg3", data)
-        console.log(res)
-        if(res.data.status === "pass") {
-            toast.info("Sign up Successfull")
-            setTimeout(() => {
-                navigate('/')
-            }, 3000);
-
-        }
-    }
-    if(role==="5")
-    {
-        const res = await axios.post("http://localhost:8084/api/registerenrolluserorg4", data)
-        console.log(res)
-        if(res.data.status === "pass") {
-            toast.info("Sign up Successfull")
-            setTimeout(() => {
-                navigate('/')
-            }, 3000);
-
-        }
-    }
 
     }
 
