@@ -22,6 +22,8 @@ import TransferLabReport from './Components/Forms/TransferLabReport';
 import BatchDetails from './Screens/Dashboard/BatchDetails';
 import ShippingBatchDetails from './Screens/Dashboard/ShippingBillDetails';
 import ProcessingBatchDetails from './Screens/Dashboard/ProcessingBillDetails';
+import QR from './Screens/QRtest/qr';
+
 
 const App = () => {
     return (
@@ -44,6 +46,10 @@ const App = () => {
                 <Route path = "/batch-details" element={<BatchDetails/>} />
                 <Route path = "/shipping-batch" element = {<ShippingBatchDetails/>} />
                 <Route path = "/processing-batch" element = {<ProcessingBatchDetails/>} />
+                <Route path = "/tracking/:id" element = {<QR />} />
+
+                {/* <Route path = "/scanqr" element = {<QRscanner />} /> */}
+                
             </Routes>
         </Router>
         </AuthProvider>
