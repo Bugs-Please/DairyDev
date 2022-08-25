@@ -11,6 +11,7 @@ import { AuthProvider } from './AuthProvider';
 import LandingPage from './Screens/LandingPage/LandingPage';
 import Login from './Screens/Login/Login';
 import Signup from './Screens/Signup/Signup';
+import PhoneSignup from './Screens/Signup/PhoneSignup';
 import Tracking from './Components/Tracking/Tracking';
 import FarmerList from './Screens/Dashboard/FarmerList';
 import GenerateBatch from './Components/Forms/GenerateBatch';
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path = "/" element={<LandingPage />} />
                 <Route path = "/login" element={<Login />} />
                 <Route path = "/signup" element={<Signup />} />
+                <Route path = "/phone-signup" element = {<PhoneSignup />} />
                 <Route path = "/dashboard" element={<Dashboard/>} />
                 <Route path = "/tracking" element={<Tracking/>} />
                 <Route path = "/new-batch" element={<GenerateBatch/>} />
