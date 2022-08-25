@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../../Assets/images/Logo.png"
 import {
     FaHome,
@@ -10,9 +10,6 @@ import {
 import {
     GiMilkCarton
 } from "react-icons/gi";
-import {
-    HiDocumentReport
-} from "react-icons/hi"
 import { AuthContext } from "../../AuthProvider";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -52,36 +49,37 @@ const Sidebar = props => {
                             <FaChartPie /> <span className="ms-1 d-none d-sm-inline">Dashboard</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/farmers" className="nav-link px-0 align-middle text-white">
-                            <FaUserFriends /> <span className="ms-1 d-none d-sm-inline">Farmers</span>
-                        </a>
-                    </li>
+                    
                     {
-                        userData.role=="3" ?
+                        userData.role ==="3" ?
                         <>
-                         <li>
-                        <a href="/new-batch" className="nav-link px-0 align-middle text-white">
-                            <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">Create New Batch</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="/transferbatch" className="nav-link px-0 align-middle text-white">
-                            <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">Transfer Batch</span>
-                        </a>
-                    </li> 
-                    <li>
-                        <a href="/batch-details" className="nav-link px-0 align-middle text-white">
-                            <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">View Batch Details</span>
-                        </a>
-                    </li> 
+                            <li>
+                                <a href="/new-batch" className="nav-link px-0 align-middle text-white">
+                                    <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">Create New Batch</span>
+                                </a>
+                            </li> 
+                            <li>
+                                <a href="/transferbatch" className="nav-link px-0 align-middle text-white">
+                                    <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">Transfer Batch</span>
+                                </a>
+                            </li> 
+                            <li>
+                                <a href="/batch-details" className="nav-link px-0 align-middle text-white">
+                                    <GiMilkCarton /> <span className="ms-1 d-none d-sm-inline">View Batch Details</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/farmers" className="nav-link px-0 align-middle text-white">
+                                    <FaUserFriends /> <span className="ms-1 d-none d-sm-inline">Farmers</span>
+                                </a>
+                            </li>
                         </>
                        : <></>
 
                     }
 
                     {
-                        userData.role=="4" ?
+                        userData.role ==="4" ?
                         <>
                          <li>
                         <a href="/generateshippingbill" className="nav-link px-0 align-middle text-white">
@@ -100,7 +98,7 @@ const Sidebar = props => {
 
 
                     {
-                        userData.role=="5" ?
+                        userData.role === "5" ?
                         <>
                          <li>
                         <a href="/generatelabreport" className="nav-link px-0 align-middle text-white">
@@ -118,7 +116,7 @@ const Sidebar = props => {
                     }
                    
                     {
-                        userData.role=="2" ?  <li>
+                        userData.role === "2" ?  <li>
                         <a href="/tracking" className="nav-link px-0 align-middle text-white">
                             <FaMapMarked /> <span className="ms-1 d-none d-sm-inline">Tracking</span>
                         </a>

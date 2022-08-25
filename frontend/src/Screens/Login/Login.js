@@ -6,7 +6,7 @@ import {
     GoogleLoginButton
 } from "react-social-login-buttons";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { auth } from "../../firebase";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
@@ -21,7 +21,7 @@ const Login = () => {
         e.preventDefault()
         const res = await signInWithEmailAndPassword(auth, email, password);
         console.log(res)
-        if(res.user.email == email) {
+        if(res.user.email === email) {
             toast.info("You are Logged in!!");
             setTimeout(() => {
                 navigate('/')

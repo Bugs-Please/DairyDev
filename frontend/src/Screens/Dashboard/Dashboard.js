@@ -1,19 +1,15 @@
 import React from 'react'
-import { Row, Col } from 'react-bootstrap'
-import Sidebar from '../../Components/Sidebar/Sidebar'
-import Profile from './FarmerProfile'
+import { Row,} from 'react-bootstrap'
+import FarmerList from './FarmerList'
 
 const Dashboard = () => {
-  return (
-    <div>
-        <Row>
-            <Sidebar />
-            <Col xs = {10}>
-                <Profile/>
-            </Col>
-        </Row>
-    </div>
-  )
+    return (
+        <div>
+            <Row>
+                <FarmerList/>
+            </Row>
+        </div>
+    )
 }
 
 export default Dashboard

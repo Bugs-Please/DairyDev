@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 // import { doc, getDoc, collection } from "firebase/firestore";
 import Nav from 'react-bootstrap/Nav';
 import Header from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import NavLogo from "../../Assets/images/NavLogo.png";
 import { AuthContext } from '../../AuthProvider';
 import { auth } from '../../firebase';

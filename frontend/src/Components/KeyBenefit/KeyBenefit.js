@@ -4,7 +4,6 @@ import lock from "../../Assets/images/Lock.png";
 import trace from "../../Assets/images/Trace.png";
 import digi from "../../Assets/images/Digi.png";
 import cow from "../../Assets/images/BackgroundCow.png";
-import {  Row,Col } from "react-bootstrap";
 
 
 const KeyBenefit = () => {

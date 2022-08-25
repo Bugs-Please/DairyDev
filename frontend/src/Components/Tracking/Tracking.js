@@ -62,7 +62,7 @@ const Tracking = () => {
       }
       const res = await axios.get("http://localhost:8081/api/getHistory", config)
       setEventData(res.data)
-      if(res.status == 200)
+      if(res.status === 200)
       {
         toast.info("Map Endpoints Retrieved !!")
       }
@@ -86,7 +86,7 @@ const Tracking = () => {
 
       }
       const res = await axios.get("http://localhost:8082/api/getalldocs", config)
-      if(res.status == 200)
+      if(res.status === 200)
       {
         toast.info("All Docs Data Retrieved !!")
       }

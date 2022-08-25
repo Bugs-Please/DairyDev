@@ -29,19 +29,19 @@ const Process = () => {
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo1} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Recording and verifying the farmer</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Recording and verifying the farmer</p>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Milking Data and Quantity</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Milking Data and Quantity</p>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo3} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Digital batch identity Creation.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Digital batch identity Creation.</p>
                                 </div>
                             </Row>
                         </Col>
@@ -68,19 +68,19 @@ const Process = () => {
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo1} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Details about basic Fat tests, SNF tests are recorded.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Details about basic Fat tests, SNF tests are recorded.</p>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Over blockchain with the help of IOT sensors.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Over blockchain with the help of IOT sensors.</p>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo3} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Create a batch of milk from multiple churns and create an assets.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Create a batch of milk from multiple churns and create an assets.</p>
                                 </div>
                             </Row>
                         </Col>
@@ -107,13 +107,13 @@ const Process = () => {
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo1} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Temperature recorded at various intervals in transportation process.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Temperature recorded at various intervals in transportation process.</p>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Details are updated about the batch.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Details are updated about the batch.</p>
                                 </div>
                             </Row>
                         </Col>
@@ -140,19 +140,19 @@ const Process = () => {
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo1} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Additional milk tests details such as platform tests are received a day before batch arrives.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Additional milk tests details such as platform tests are received a day before batch arrives.</p>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>This allowed better decisions to be made while the milk is being processed.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>This allowed better decisions to be made while the milk is being processed.</p>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
                                     <img src={logo2} style={{objectFit:'contain'}} height='75px' alt="milk tetra pack" />
-                                    <p className='my-auto px-3'>Then Packaging information about the batch of milk and lab test reports are updated.</p>
+                                    <p className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.2rem"}}>Then Packaging information about the batch of milk and lab test reports are updated.</p>
                                 </div>
                             </Row>
                         </Col>
@@ -171,32 +171,43 @@ const Process = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <Row className='m-5'>
+                            <Row className='m-5 '>
                                 <div className='d-flex justify-content-start align-items-center'>
-                                    <p className='my-auto px-3'>
-                                        Data which will be visible to the end consumer are as follows :
+                                    <ul className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.1rem"}}>
+                                        <li>Data which will be visible to the end consumer are as follows :
                                         <br/>
                                         1. Farm that ships batch of milk
                                         <br/>
                                         2. The temperature at which it was delivered to the chilling and packaging centres.
                                         <br/>
                                         3. More information about detailed lab reports and test results.
-                                    </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </Row>
+                            <Row className='m-5' >
+                                <div className='d-flex justify-content-start align-items-center'>
+                                    <ul className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.1rem"}}>
+                                        <li>As the entire data is stored on an immutable ledger with minimal human intervention the problems like adulteration, low quality, and counterfeiting should be countered.</li>
+                                    </ul>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
-                                    <p className='my-auto px-3'>As the entire data is stored on an immutable ledger with minimal human intervention the problems like adulteration, low quality, and counterfeiting should be countered.</p>
+                                    <ul className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.1rem"}}>
+                                        <li>
+                                            Farmers will get financial benefits from increased quality and yield of milk and better bargaining power, customers can acquire excellent quality milk while tracking the status of the product.
+                                        </li>
+                                    </ul>
                                 </div>
                             </Row>
                             <Row className='m-5'>
                                 <div className='d-flex justify-content-start align-items-center'>
-                                    <p className='my-auto px-3'>Farmers will get financial benefits from increased quality and yield of milk and better bargaining power, customers can acquire excellent quality milk while tracking the status of the product.</p>
-                                </div>
-                            </Row>
-                            <Row className='m-5'>
-                                <div className='d-flex justify-content-start align-items-center'>
-                                    <p className='my-auto px-3'>By Achieving end-to-end visibility we can recall a batch of milk at any point of failure in the supply chain thus minimizing losses and enhancing trust.</p>
+                                    <ul className='my-auto px-3' style={{"color":"#3B5999",fontWeight:"800",fontSize:"1.1rem"}}>
+                                        <li>
+                                            By Achieving end-to-end visibility we can recall a batch of milk at any point of failure in the supply chain thus minimizing losses and enhancing trust.
+                                        </li>
+                                    </ul>
                                 </div>
                             </Row>
                         </Col>
@@ -207,4 +218,4 @@ const Process = () => {
     )
 }
 
-export default Process
+export default Process;
