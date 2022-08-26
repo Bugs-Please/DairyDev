@@ -44,3 +44,15 @@ select:focus{
     border: 3px #3B5999 solid;
     box-shadow: none;
 }
+
+.image-login-page
+    {
+        width: 30%;
+    }
+
+@media only screen and (min-width: 700px) {
+    .image-login-page
+    {
+        width: 100%;
+    }
+}
