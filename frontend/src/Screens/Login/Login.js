@@ -76,8 +76,8 @@ const Login = () => {
 
             </div>
         </div> */
-
-        <Row style={{ display: "flex", justifyContent: 'space-evenly', overflowX: 'hidden', overflowY: 'hidden' }}>
+        <div style={{"overflow-x":"hidden"}}>
+        <Row style={{ display: "flex", justifyContent: 'space-evenly' }}>
             <ToastContainer
                 position="top-center"
                 autoClose={5000}
@@ -89,17 +89,17 @@ const Login = () => {
                 draggable
                 pauseOnHover
             />
-            <Col className="d-sm-none d-md-block col-md-5">
+            <Col  className="d-none d-sm-none d-md-block ">
                 <img src={group} style={{ height: "100vh" }} alt='milk can' />
             </Col>
-            <Col className="col-12 col-md-7">
+            <Col md={6} sm={12}>
                 <div className="d-flex flex-column justify-content-center p-5 m-5">
                     <h1 className="title text-center">Sign In</h1>
                     
                     
-                    <GoogleLoginButton />
+                    <GoogleLoginButton style={{"width":"100%","margin" : "0 auto", "padding" : "1rem 0rem"}}/>
                     <br/>
-                    <FacebookLoginButton />
+                    <FacebookLoginButton style={{"width":"100%","margin" : "0 auto", "padding" : "1.2rem 0rem"}}/>
                     <br/>
 
                     <form onSubmit={login}>
@@ -125,6 +125,7 @@ const Login = () => {
                 </div>
             </Col>
         </Row>
+        </div>
     );
 }
 

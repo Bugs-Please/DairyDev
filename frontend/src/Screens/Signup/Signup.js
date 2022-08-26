@@ -113,82 +113,6 @@ const Signup = () => {
     // );
 
     return (
-        // <div className="container">
-        //     <div className="row">
-        //         <div className="col-md-8">
-        //             <h1 className="title">Register</h1>
-        //             <br />
-        //             <form onSubmit={register}>
-        //                 <div className="form-row">
-
-        //                     <div className="form-group col-md-12">
-        //                         <label>
-        //                             <i className="zmdi zmdi-email material-icons-name"></i>
-        //                         </label>
-        //                         <input type="email" value={email} className="form-control" id="inputEmail4" placeholder="Email" 
-        //                         onChange={e => setEmail(e.target.value)}/>
-        //                     </div>
-        //                     <br />
-
-        //                     <div className="form-group col-md-12">
-        //                         <input type="password" value={password} className="form-control" id="password1" placeholder="Password" 
-        //                         onChange={e => setPassword(e.target.value)}/>
-        //                     </div>
-        //                     <br />
-
-        //                     <div className="form-group col-md-12">
-        //                         {/* <label for="inputPassword4">Confirm Password</label> */}
-        //                         <input type="password" value={confirmPassword} className="form-control" id="password2" placeholder="Confirm Password" 
-        //                         onChange={e => setConfirmPassword(e.target.value)}/>
-        //                     </div>
-        //                     <br />
-
-        //                     <div className="form-group col-md-12">
-        //                         <select id="select" value={role} onChange={handleChange} className="form-control custom-select custom-select-sm col-md-12 shadow-none">
-        //                             <option selected>Select your user role</option>
-        //                             <option value="1">Dairy Farmer</option>
-        //                             <option value="2">Cooperative</option>
-        //                             <option value="3">Milk chilling centre</option>
-        //                             <option value="4">Milk packaging centre</option>
-        //                             <option value="5">Consumer</option>
-        //                         </select>
-        //                     </div>
-        //                     <br />
-
-        //                     <hr />
-        //                     <div className="social-login">
-        //                         <div className="row">
-        //                             <div className="col-4">
-        //                                 <button><a href="#" class="fa fa-google"></a></button>
-
-        //                             </div>
-        //                             <div className="col-4">
-        //                                 <button><a href="#" class="fa fa-facebook"></a></button>
-
-        //                             </div>
-        //                             <div className="col-4">
-        //                                 <button><a href="#" class="fa fa-apple"></a></button>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                     <br />
-        //                     <div className="d-grid gap-2">
-        //                         <button type="submit" className="btn btn-primary">Register Now</button>
-        //                     </div>
-
-        //                     <br />
-        //                     <div className="login-link">
-        //                         <a href="#"><h5>Already have an account? Sign In</h5></a>
-        //                     </div>
-        //                 </div>
-
-        //             </form>
-        //         </div>
-        //         <div className="col-md-4">
-        //             <img src={group} style={{objectFit:'contain',height:'100vh'}} alt='broom farmer' />
-        //         </div>
-        //     </div>
-        // </div
         <div style={{ "overflow-x": "hidden" }}>
             <Row style={{ display: "flex", justifyContent: 'space-evenly', overflowX: 'hidden', overflowY: 'hidden' }}>
                 <ToastContainer
@@ -202,7 +126,7 @@ const Signup = () => {
                     draggable
                     pauseOnHover
                 />
-                <Col /* md={7 */ className="col-12 col-md-7">
+                <Col md={6} sm={12}>
                     <div className="d-flex flex-column justify-content-center p-5 m-5">
                         <h1 className="title text-center">Register</h1>
                         <form onSubmit={register}>
@@ -269,7 +193,7 @@ const Signup = () => {
                         </form>
                     </div>
                 </Col>
-                <Col /* md={5} */ className="d-sm-none d-md-block col-md-5">
+                <Col className="d-none d-sm-none d-md-block">
                     <img src={group} style={{ height: "100vh" }} alt='broom farmer' />
                 </Col>
             </Row>
