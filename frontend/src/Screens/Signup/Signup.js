@@ -184,6 +184,11 @@ const Signup = () => {
                                     <div className="row mt-3">
                                         <button type="submit" className="btn rounded-3 mt-3 mb-3 btn-block btn-primary">Register Now</button>
                                     </div>
+                                    
+                                    <div className="row mt-3"> 
+                                        <a href="/phone-signup" className="btn btn-block btn-outline-none rounded-3 text-black text-decoration-none text-primary" >Continue with Phone Number</a>
+
+                                    </div>
 
                                     <div className="login-link">
                                         <a href="/login" className="text-center text-decoration-none"><h5>Already have an account? <strong>Sign In</strong></h5></a>
