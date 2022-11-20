@@ -1,6 +1,6 @@
 import './Profile.css';
 import pic from './image.png';
-import { Sidebar } from 'rsuite';
+import Sidebar from '../../Components/Sidebar/Sidebar';
 import { Row, Col } from 'react-bootstrap';
 const Profile = () => {
   return (
