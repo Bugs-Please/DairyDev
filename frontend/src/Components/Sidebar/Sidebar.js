@@ -1,19 +1,19 @@
-import React, { useContext, useState } from "react";
-import { Col } from "react-bootstrap";
-import Logo from "../../Assets/images/Logo.png";
-import { FaHome, FaChartPie, FaUserFriends, FaMapMarked } from "react-icons/fa";
+import React, { useContext, useState } from 'react';
+import { Col } from 'react-bootstrap';
+import Logo from '../../Assets/images/Logo.png';
+import { FaHome, FaChartPie, FaUserFriends, FaMapMarked } from 'react-icons/fa';
 
-import { GiMilkCarton } from "react-icons/gi";
-import { AuthContext } from "../../AuthProvider";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { GiMilkCarton } from 'react-icons/gi';
+import { AuthContext } from '../../AuthProvider';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const Sidebar = (props) => {
   const { user } = useContext(AuthContext);
   const [userData, setUserData] = useState([]);
 
   const fetchEvents2 = async () => {
-    const docRef = doc(db, "users", user.auth.currentUser.email);
+    const docRef = doc(db, 'users', user.auth.currentUser.email);
     const docSnap = await getDoc(docRef);
     const data = docSnap.data();
     setUserData(data);
@@ -23,10 +23,15 @@ const Sidebar = (props) => {
     fetchEvents2();
   }
 
-  console.log(userData)
+  // console.log(user);
 
   return (
-    <Col style={{ backgroundColor: "#3B5999" }} sm={2} xs={3} md={3}>
+    <Col
+      style={{ backgroundColor: '#3B5999', height: '100%' }}
+      sm={2}
+      xs={3}
+      md={2}
+    >
       {/* // <div className="col-auto col-sm-2" style={{"backgroundColor" : "#3B5999"}}> */}
 
       <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -35,7 +40,9 @@ const Sidebar = (props) => {
           className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         >
           <img src={Logo} alt="logo" />
-          <span className="fs-5 d-none d-sm-inline align-middle">DairyDev</span>
+          <span className="fs-5 d-none d-sm-inline align-middle">
+            MilkLucid
+          </span>
         </a>
         <ul
           className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -47,7 +54,7 @@ const Sidebar = (props) => {
             </a>
           </li>
 
-          {userData?.role === "3" ? (
+          {userData?.role === '3' ? (
             <>
               <li>
                 <a
@@ -55,7 +62,7 @@ const Sidebar = (props) => {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 text-white"
                 >
-                  <FaChartPie />{" "}
+                  <FaChartPie />{' '}
                   <span className="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
               </li>
@@ -64,7 +71,7 @@ const Sidebar = (props) => {
                   href="/new-batch"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <GiMilkCarton />{" "}
+                  <GiMilkCarton />{' '}
                   <span className="ms-1 d-none d-sm-inline">
                     Create New Batch
                   </span>
@@ -75,7 +82,7 @@ const Sidebar = (props) => {
                   href="/transferbatch"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <GiMilkCarton />{" "}
+                  <GiMilkCarton />{' '}
                   <span className="ms-1 d-none d-sm-inline">
                     Transfer Batch
                   </span>
@@ -86,7 +93,7 @@ const Sidebar = (props) => {
                   href="/batch-details"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <GiMilkCarton />{" "}
+                  <GiMilkCarton />{' '}
                   <span className="ms-1 d-none d-sm-inline">
                     View Batch Details
                   </span>
@@ -97,7 +104,7 @@ const Sidebar = (props) => {
                   href="/farmers"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <FaUserFriends />{" "}
+                  <FaUserFriends />{' '}
                   <span className="ms-1 d-none d-sm-inline">Farmers</span>
                 </a>
               </li>
@@ -106,7 +113,7 @@ const Sidebar = (props) => {
             <></>
           )}
 
-          {userData?.role === "4" ? (
+          {userData?.role === '4' ? (
             <>
               <li>
                 <a
@@ -114,7 +121,7 @@ const Sidebar = (props) => {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 text-white"
                 >
-                  <FaChartPie />{" "}
+                  <FaChartPie />{' '}
                   <span className="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
               </li>
@@ -123,7 +130,7 @@ const Sidebar = (props) => {
                   href="/generateshippingbill"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <GiMilkCarton />{" "}
+                  <GiMilkCarton />{' '}
                   <span className="ms-1 d-none d-sm-inline">
                     Generate Shipping bill
                   </span>
@@ -134,9 +141,9 @@ const Sidebar = (props) => {
                   href="/transfershippingbill"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <GiMilkCarton />{" "}
+                  <GiMilkCarton />{' '}
                   <span className="ms-1 d-none d-sm-inline">
-                    Transfer Shipping BIll{" "}
+                    Transfer Shipping BIll{' '}
                   </span>
                 </a>
               </li>
@@ -145,7 +152,7 @@ const Sidebar = (props) => {
             <></>
           )}
 
-          {userData?.role === "5" ? (
+          {userData?.role === '5' ? (
             <>
               <li>
                 <a
@@ -153,7 +160,7 @@ const Sidebar = (props) => {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 text-white"
                 >
-                  <FaChartPie />{" "}
+                  <FaChartPie />{' '}
                   <span className="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
               </li>
@@ -162,7 +169,7 @@ const Sidebar = (props) => {
                   href="/generatelabreport"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <GiMilkCarton />{" "}
+                  <GiMilkCarton />{' '}
                   <span className="ms-1 d-none d-sm-inline">
                     Generate Lab Report
                   </span>
@@ -173,9 +180,9 @@ const Sidebar = (props) => {
                   href="/transferlabreport"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <GiMilkCarton />{" "}
+                  <GiMilkCarton />{' '}
                   <span className="ms-1 d-none d-sm-inline">
-                    Transfer Lab Report{" "}
+                    Transfer Lab Report{' '}
                   </span>
                 </a>
               </li>
@@ -184,7 +191,7 @@ const Sidebar = (props) => {
             <></>
           )}
 
-          {userData?.role === "2" ? (
+          {userData?.role === '2' ? (
             <>
               <li>
                 <a
@@ -192,7 +199,7 @@ const Sidebar = (props) => {
                   data-bs-toggle="collapse"
                   className="nav-link px-0 text-white"
                 >
-                  <FaChartPie />{" "}
+                  <FaChartPie />{' '}
                   <span className="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
               </li>
@@ -201,7 +208,7 @@ const Sidebar = (props) => {
                   href="/tracking"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <FaMapMarked />{" "}
+                  <FaMapMarked />{' '}
                   <span className="ms-1 d-none d-sm-inline">Tracking</span>
                 </a>
               </li>
