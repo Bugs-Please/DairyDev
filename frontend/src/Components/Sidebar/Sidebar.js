@@ -23,10 +23,9 @@ const Sidebar = (props) => {
     fetchEvents2();
   }
 
-  console.log(userData)
 
   return (
-    <Col style={{ backgroundColor: "#3B5999" }} sm={2} xs={3} md={3}>
+    <Col style={{ backgroundColor: "#3B5999" }} sm={2} xs={3} md={2}>
       {/* // <div className="col-auto col-sm-2" style={{"backgroundColor" : "#3B5999"}}> */}
 
       <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">

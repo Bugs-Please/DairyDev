@@ -24,6 +24,7 @@ const styles = {
 const Tracking = () => {
   const [step, setStep] = useState(0);
   const [eventData, setEventData] = useState([])
+  const [loaded, setLoadedData] = useState(false)
   const [DocsData, setDocsData] = useState([])
   // const [loading, setLoading] = useState(true)
   const { user } = useContext(AuthContext);
@@ -68,6 +69,7 @@ const Tracking = () => {
       if(res.status === 200)
       {
         toast.info("Map Endpoints Retrieved !!")
+        setLoadedData(true)
       }
       console.log(res.data)
       // setLoading(false)
@@ -92,6 +94,7 @@ const Tracking = () => {
       if(res.status === 200)
       {
         toast.info("All Docs Data Retrieved !!")
+
       }
      
       setDocsData(res.data.result)
@@ -100,6 +103,7 @@ const Tracking = () => {
 
     fetchEvents2()
     fetchEvents()
+
 
   }
 
@@ -293,18 +297,13 @@ const Tracking = () => {
                   <LocationMap eventData={eventData} />
                 </Col>
               </Row> 
-
+       
         </Col>
-
+       { loaded && <QR sensorId={formData?.sensorId} user={user?.auth?.currentUser?.email} user2={"darakamruta@gmail.com"} 
+    milkBatchNumber={formData?.milkBatchNumber} billNumber={formData?.billNumber} 
+    labReportNumber={formData?.labReportNumber} /> }
       </Row>
-      <Row>
-        {
-           (user && formData) ? <QR sensorId={formData.sensorId} user={user.auth.currentUser.email} user2={'darakamruta@gmail.com'} 
-           milkBatchNumber={formData.milkBatchNumber} billNumber={formData.billNumber} 
-           labReportNumber={formData.labReportNumber}  /> : <></>
-        }
    
-      </Row>
 
     </div>
   );

@@ -15,17 +15,21 @@ const LocationMap = ({ eventData, center, zoom }) => {
     var loop = [];
     const MAPBOX_TOKEN ="pk.eyJ1Ijoic21peWFrYXdhIiwiYSI6ImNqcGM0d3U4bTB6dWwzcW04ZHRsbHl0ZWoifQ.X9cvdajtPbs9JDMG-CMDsA";
     {
-        eventData.result ? 
-        loop = eventData.result :
+        eventData?.result ? 
+        loop = eventData?.result :
         loop = [];
 
     }
     const markers = loop.map((ev, index) => {
-        return <Marker key={index} longitude={ev.record.latitude} latitude={ev.record.longitude} anchor="bottom">
-        <LocationMarker key={index} lat={ev.record.longitude} lng={ev.record.latitude} onClick={() => setLocationInfo({ temp : ev.record.temp , 
-                                                                                                                        latitude : ev.record.longitude,
-                                                                                                                        longitude: ev.record.latitude })} />        
-        </Marker>
+        if(!isNaN(ev.record.longitude) && !isNaN(ev.record.latitude))
+        {
+          return <Marker key={index} longitude={ev.record.latitude} latitude={ev.record.longitude} anchor="bottom">
+          <LocationMarker key={index} lat={ev.record.longitude} lng={ev.record.latitude} onClick={() => setLocationInfo({ temp : ev.record.temp , 
+                                                                                                                          latitude : ev.record.longitude,
+                                                                                                                          longitude: ev.record.latitude })} />
+                                                                                                                                  </Marker>     
+        }
+           
     })
 
     return (

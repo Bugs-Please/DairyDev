@@ -4,13 +4,13 @@ import { Steps } from "rsuite";
 import "rsuite/styles/index.less";
 import "rsuite/dist/rsuite.min.css";
 import { Col, Row } from "react-bootstrap";
+import Sidebar from "../Sidebar/Sidebar";
 import axios from 'axios'
 import LocationMap from '../../Components/Map/Map'
 import Loader from '../../Components/Loader/Loader'
 import { AuthContext } from "../../AuthProvider"
 import { toast, ToastContainer } from "react-toastify";
-import { useLocation, useSearchParams } from "react-router-dom";
-import Sidebar from "../../Components/Sidebar/Sidebar";
+import { useLocation } from "react-router-dom";
 
 
 
@@ -19,73 +19,63 @@ const styles = {
   display: "inline-table",
   verticalAlign: "top",
 };
-const QRTracking = () => {
+const QrTracking = () => {
   const [step, setStep] = useState(0);
   const [eventData, setEventData] = useState([])
   const [DocsData, setDocsData] = useState([])
   // const [loading, setLoading] = useState(true)
   const { user } = useContext(AuthContext);
-  let { search } = useLocation();
-
-  const query = new URLSearchParams(search);
- 
+  const search = useLocation().search;
+  const searchParams = new URLSearchParams(search);
+  console.log(searchParams)
   
   const fetchEvents = async () => {
     // setLoading(true)
+    console.log(searchParams.get('sensorId'))
     const config = {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
       params: {
-        "username": "darakamruta@gmail.com",
-        "sensorId": query.get("sensorId")
+        "username": searchParams.get('user2') ,
+        "sensorId": searchParams.get('sensorId'),
       }
     }
     const res = await axios.get("http://localhost:8081/api/getHistory", config)
     setEventData(res.data)
-    if(res.status === 200)
-    {
-      toast.info("Map Endpoints Retrieved !!")
-    }
+
+  
     console.log(res.data)
     // setLoading(false)
   }
 
   const fetchEvents2 = async () => {
-
+  
     const config = {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
       params: {
-        "username": user.auth.currentUser.email,
-        "milkBatchNumber": query.get("milkBatchNumber"),
-        "billNumber": query.get("billNumber"),
-        "labReportNumber": query.get("labReportNumber")
+        "username": searchParams.get('user'),
+        "milkBatchNumber": searchParams.get('milkBatchNumber'),
+        "billNumber": searchParams.get('billNumber'),
+        "labReportNumber": searchParams.get('labReportNumber')
       }
 
     }
     const res = await axios.get("http://localhost:8082/api/getalldocs", config)
-    if(res.status === 200)
-    {
-      toast.info("All Docs Data Retrieved !!")
-    }
-   
+
     setDocsData(res.data.result)
     console.log(res.data.result)
   }
 
-
-   fetchEvents()
-   fetchEvents2()
-
-
-
   useEffect(() => {
-    
-  }, [])
+      fetchEvents()
+      fetchEvents2()
+  },[])
+
 
   return (
     <div style={{ "overflow-x": "hidden" }}>
@@ -100,22 +90,20 @@ const QRTracking = () => {
             draggable
             pauseOnHover/>
       <Row>
-
         <Sidebar />
-        <Col xs={9} sm={10} md={9}>
+        <Col xs={10} md={10}>
           <div className="user-heading border p-2 px-3 mt-4 m-4 text-center">
             <h3> Track Batch Report</h3>
           </div>
-         
           
               <Row>
-                <Col  md={10} sm={4}>
+                <Col xs={6} md={6}>
                   <div className="main_container mt-3">
                     <div class="container padding-bottom-3x mb-1">
                       <div class="card mb-3">
                         <div class="p-4 text-center text-white text-lg bg-dark rounded-top">
                           <span class="text-uppercase">Sensor No - </span>
-                          <span class="text-medium">{query.get("sensorId")}</span>
+                          <span class="text-medium">{searchParams?.sensorId}</span>
                         </div>
                         <div class="d-flex flex-wrap flex-sm-nowrap justify-content-between py-3 px-2 bg-secondary">
                           <div class="w-100 text-center py-1 px-2">
@@ -195,7 +183,7 @@ const QRTracking = () => {
 
                   </div>
                 </Col>
-                <Col  md={9} sm={12} className="w-100 p-0" style={{"width":"100%"}}>
+                <Col xs={4} md={4}>
                   {/* { !loading ? <LocationMap eventData={eventData} /> : <Loader /> } */}
                   <LocationMap eventData={eventData} />
                 </Col>
@@ -209,4 +197,4 @@ const QRTracking = () => {
   );
 };
 
-export default QRTracking;
+export default QrTracking;

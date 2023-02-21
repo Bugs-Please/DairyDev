@@ -24,7 +24,7 @@ import BatchDetails from './Screens/Dashboard/BatchDetails';
 import ShippingBatchDetails from './Screens/Dashboard/ShippingBillDetails';
 import ProcessingBatchDetails from './Screens/Dashboard/ProcessingBillDetails';
 import QR from './Screens/QRtest/qr';
-import QRTracking from './Screens/QRTracking/QRTracking';
+import QrTracking from './Components/Tracking/QrTracking';
 
 
 const App = () => {
@@ -49,8 +49,7 @@ const App = () => {
                 <Route path = "/batch-details" element={<BatchDetails/>} />
                 <Route path = "/shipping-batch" element = {<ShippingBatchDetails/>} />
                 <Route path = "/processing-batch" element = {<ProcessingBatchDetails/>} />
-                <Route path = "/tracking/:id" element = {<QR sensorId={1} />} />
-                <Route path = "/trackyourOrder" element = {<QRTracking />} />
+                <Route path = "/trackyourOrder" element = {<QrTracking />} />
 
                 {/* <Route path = "/scanqr" element = {<QRscanner />} /> */}
                 
