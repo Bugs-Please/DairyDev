@@ -7,6 +7,26 @@ const Profile = () => {
     <Row>
       <Sidebar />
       <Col xs={9} sm={10} md={9}>
+        <Row style={{ backgroundColor: 'white' }}>
+          <Col md={3}>
+            <img src={pic} alt="profile pic" />
+          </Col>
+          <Col md={9}>
+            <Row>
+              <Col md={6}></Col>
+              <Col md={6}></Col>
+            </Row>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+  );
+};
+
+export default Profile;
+
+{
+  /* <Col xs={9} sm={10} md={9}>
         <div style={{ 'overflow-x': 'hidden', 'overflow-y': 'hidden' }}>
           <div className="profile overflow-hidden m-3">
             <div className="row">
@@ -177,9 +197,5 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      </Col>
-    </Row>
-  );
-};
-
-export default Profile;
+      </Col> */
+}
