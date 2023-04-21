@@ -17,7 +17,7 @@ const Navbar = () => {
             <Header expand='lg' collapseOnSelect className="d-flex">
                 <div className='d-flex'>
                     <Header.Brand href="#home">
-                        <img className="w-25" style={{"objectFit":"contain"}} src={NavLogo} alt="this is our logo" /> <span className="align-content-center mt-5"> DairyDev</span>
+                        <img className="w-25" style={{"objectFit":"contain"}} src={NavLogo} alt="this is our logo" /> <span className="align-content-center mt-5"> MilkLucid</span>
                     </Header.Brand>
                 </div>
                     <Header.Toggle aria-controls="basic-navbar-nav"  />

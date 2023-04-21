@@ -34,7 +34,7 @@ const Sidebar = (props) => {
           className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         >
           <img src={Logo} alt="logo" />
-          <span className="fs-5 d-none d-sm-inline align-middle">DairyDev</span>
+          <span className="fs-5 d-none d-sm-inline align-middle">MilkLucid</span>
         </a>
         <ul
           className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"

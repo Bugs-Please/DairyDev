@@ -44,7 +44,7 @@ const Signup = () => {
                 const data = {
                     "username" : email
                 };
-            // console.log(role);
+            console.log(role);
             if(role==="3")
             {
                 const res = await axios.post("http://localhost:8081/api/registerenrolluserorg1", data)

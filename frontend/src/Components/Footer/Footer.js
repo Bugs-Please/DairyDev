@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="container py-4">
         <div className="row">
           <div className="col-md-6">
-            © Copyright DairyDev. All Rights Reserved.
+            © Copyright MilkLucid. All Rights Reserved.
           </div>
           <div className="col-md-2">Terms & Conditions</div>
           <div className="col-md-2 rej">Privacy Policy</div>
