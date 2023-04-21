@@ -206,7 +206,7 @@ const Tracking = () => {
           </div>
           
               <Row>
-                <Col  md={10} sm={4}>
+                <Col  xs={6} md={6}>
                   <div className="main_container mt-3">
                     <div class="container padding-bottom-3x mb-1">
                       <div class="card mb-3">
@@ -292,16 +292,19 @@ const Tracking = () => {
 
                   </div>
                 </Col>
-                <Col  md={9} sm={12} className="w-100 p-0" style={{"width":"100%"}}>
+                <Col  xs={4} md={4} className="w-100 p-0" style={{"width":"100%"}}>
                   {/* { !loading ? <LocationMap eventData={eventData} /> : <Loader /> } */}
                   <LocationMap eventData={eventData} />
+                </Col>
+                <Col>
+                { loaded && <QR sensorId={formData?.sensorId} user={user?.auth?.currentUser?.email} user2={"darakamruta@gmail.com"} 
+    milkBatchNumber={formData?.milkBatchNumber} billNumber={formData?.billNumber} 
+    labReportNumber={formData?.labReportNumber} /> }
                 </Col>
               </Row> 
        
         </Col>
-       { loaded && <QR sensorId={formData?.sensorId} user={user?.auth?.currentUser?.email} user2={"darakamruta@gmail.com"} 
-    milkBatchNumber={formData?.milkBatchNumber} billNumber={formData?.billNumber} 
-    labReportNumber={formData?.labReportNumber} /> }
+       
       </Row>
    
 
